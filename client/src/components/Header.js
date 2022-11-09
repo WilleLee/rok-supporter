@@ -1,35 +1,11 @@
 import "../styles/components/header.scss";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-
-/**
- * window resize event에 반응하여 x, y 값 반환
- * @returns {object}
- */
-const useWindowSize = () => {
-  const [state, setState] = useState({
-    innerWidth: window.innerWidth,
-    innerHeight: window.innerHeight,
-  });
-  const onResize = () => {
-    setState({
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight,
-    });
-  };
-  useEffect(() => {
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
-  return state;
-};
+import useWindowSize from "../hooks/useWindowSize";
 
 const Header = () => {
   const { innerWidth } = useWindowSize();
   return (
-    <header style={{ height: "120vh" }}>
+    <header>
       <div
         /*big screen header*/ className={`header__big_screen ${
           innerWidth < 540 ? "hidden" : ""
@@ -50,6 +26,10 @@ const Header = () => {
         <div>
           <div>Admin On</div>
         </div>
+      </div>
+      <div style={{ display: "none" }} /*small screen header*/>
+        {/*logo*/}
+        <button>toggle button</button>
       </div>
     </header>
   );
