@@ -20,11 +20,22 @@ const Header = () => {
           <div>
             <Link to={`/about`}>About 1770</Link>
           </div>
-          <div>Tools</div>
+          <div style={{ position: "relative" }}>
+            <span>Tools</span>
+            <div
+              style={{
+                position: "absolute",
+                top: "100%",
+                backgroundColor: "beige",
+              }}
+            >
+              blah
+            </div>
+          </div>
           <div>Events</div>
         </nav>
         <div>
-          <div>Admin On</div>
+          <button className="ct_btn">Admin</button>
         </div>
       </div>
       <div style={{ display: "none" }} /*small screen header*/>
