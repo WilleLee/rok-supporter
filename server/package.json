@@ -4,14 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build": "babel src -d dist",
+    "start": "node dist/app.js"
   },
   "author": "Wille Lee <1992season@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
     "@babel/node": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
   }
 }
