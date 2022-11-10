@@ -17,15 +17,68 @@
   }
 }
 
+.ct_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  .ct_form__input_container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    input {
+      all: unset;
+      width: 140px;
+      background-color: white;
+      padding: 3px 5px;
+      color: $txt-color-light;
+      text-align: center;
+    }
+  }
+  input[type="submit"] {
+    all: unset;
+    background-color: $bg-color-dark;
+    color: $txt-color-dark;
+  }
+}
+
+.message_box {
+  width: 330px;
+  height: 40px;
+  margin: 0 auto 10px;
+  background-color: #4ade80;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+}
+
 @media (prefers-color-scheme: dark) {
   .ct_btn {
     background-color: $bg-color-light;
     color: $txt-color-light;
+  }
+  .ct_form {
+    input[type="submit"] {
+      background-color: $bg-color-light;
+      color: $txt-color-light;
+    }
   }
 }
 @media (prefers-color-scheme: light) {
   .ct_btn {
     background-color: $bg-color-dark;
     color: $txt-color-dark;
+  }
+  .ct_form {
+    input[type="submit"] {
+      background-color: $bg-color-dark;
+      color: $txt-color-dark;
+    }
   }
 }

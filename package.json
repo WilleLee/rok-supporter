@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:client": "cd client && npm run build && cd ..",
-    "dev:server": "cd server && npm run build && cd ..",
+    "dev:client": "cd client && npm ci --dev && npm run build && cd ..",
+    "dev:server": "cd server && npm ci --dev && npm run build && cd ..",
     "heroku-prebuild": "npm run dev:client && npm run dev:server && mv ./client/build ./server/build",
     "start": "cd server && npm run start"
   },

@@ -1,5 +1,7 @@
 import create from "zustand";
 
-export const useResourceStore = create({
-  resource: { food: 0, wood: 0, stone: 0, gold: 0, gem: 0 },
-});
+export const useMessageStore = create((set) => ({
+  message: "",
+  addMessage: (str) => set({ message: str }),
+  resetMessage: () => set({ message: "" }),
+}));

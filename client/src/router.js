@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import Root from "./pages/Root";
+import TroopPowerPage from "./pages/TroopPowerPage";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,8 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
+      { path: "admin-login", element: <AdminLoginPage /> },
+      { path: "tools/troop-power", element: <TroopPowerPage /> },
     ],
   },
 ]);
