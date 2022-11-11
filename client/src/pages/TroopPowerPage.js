@@ -19,7 +19,6 @@ const TroopPowerPage = () => {
     event.preventDefault();
     const troopNums = [];
     for (let i = 0; i < 5; i++) {
-      console.log(event.target[i].value);
       const num = Number(event.target[i].value);
       if (Number.isNaN(num)) {
         addMessage("All inputs must be number.");

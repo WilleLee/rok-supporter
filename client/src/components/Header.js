@@ -16,17 +16,21 @@ const Header = () => {
           innerWidth < 540 ? "hidden" : ""
         }`}
       >
-        <div className="header__logo_container">
-          <Link to={`/`}>
-            <img className="" src="/logo.png" alt="project logo" />
-          </Link>
+        <div className="header__logo_block">
+          <div className="header__logo_container">
+            <Link to={`/`}>
+              <img className="" src="/logo.png" alt="project logo" />
+            </Link>
+          </div>
         </div>
         <nav>
           <div>
-            <Link to={`/about`}>About 1770</Link>
+            <Link className="header__link" to={`/about`}>
+              About 1770
+            </Link>
           </div>
           <div className="header__bs__tools_container">
-            <span onClick={onClickToolsToogle}>
+            <span className="header__link" onClick={onClickToolsToogle}>
               Tools {tools ? "👇🏻" : "👈🏻"}
             </span>
             {!tools ? null : (
@@ -35,13 +39,16 @@ const Header = () => {
                   <li>
                     <Link to={`/tools/troop-power`}>Troop Power</Link>
                   </li>
+                  <li>
+                    <Link to={`/tools/resource`}>Resource Calculator</Link>
+                  </li>
                 </ul>
               </div>
             )}
           </div>
-          <div>Events</div>
+          <div className="header__link">Events</div>
         </nav>
-        <div>
+        <div className="header__bs__admin_btn">
           <button className="ct_btn">
             <Link to={`/admin-login`}>Admin</Link>
           </button>
