@@ -65,8 +65,10 @@ const TroopPowerPage = () => {
         </div>
         <input type={"submit"} value="calculate" />
       </form>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <p>{troopPower}</p>
+      <div className="ct_cal_result">
+        <p>
+          These are summed up to <span>{troopPower}</span> troop power.
+        </p>
       </div>
     </section>
   );

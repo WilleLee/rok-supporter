@@ -26,7 +26,11 @@
   .ct_form__input_container {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 10px;
+
+    label {
+      font-weight: bold;
+    }
 
     input {
       all: unset;
@@ -41,6 +45,22 @@
     all: unset;
     background-color: $bg-color-dark;
     color: $txt-color-dark;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+}
+
+.ct_cal_result {
+  display: flex;
+  justify-content: center;
+  p {
+    span {
+      font-weight: bold;
+      color: $color-green;
+    }
   }
 }
 
@@ -48,7 +68,7 @@
   width: 330px;
   height: 40px;
   margin: 0 auto 10px;
-  background-color: #4ade80;
+  background-color: $color-green;
   color: white;
   font-weight: bold;
   display: flex;
