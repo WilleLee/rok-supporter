@@ -46,7 +46,9 @@ const Header = () => {
               </div>
             )}
           </div>
-          <div className="header__link">Events</div>
+          <div className="header__link">
+            <Link to={`/events`}>Events</Link>
+          </div>
         </nav>
         <div className="header__bs__admin_btn">
           <button className="ct_btn">
@@ -54,8 +56,13 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div style={{ display: "none" }} /*small screen header*/>
+      <div
+        className={`header__small_screen ${
+          innerWidth <= 540 ? "" : "hidden"
+        }`} /*small screen header*/
+      >
         {/*logo*/}
+        <p>hey hey hey</p>
         <button>toggle button</button>
       </div>
     </header>

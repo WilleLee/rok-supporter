@@ -1,14 +1,21 @@
+import shallow from "zustand/shallow";
 import useScroll from "../hooks/useScroll";
+import { useKingsMessage } from "../store";
 import "../styles/pages/home.scss";
 
 const HomePage = () => {
+  const { kingsMessage } = useKingsMessage(
+    (state) => ({ kingsMessage: state.kingsMessage }),
+    shallow
+  );
+
   const reached = useScroll("point");
   return (
     <section>
       <div className="home__kings_message">
         <p>
           <span className="kings_message__emoji">👸🏻</span>
-          <span className="kings_message__txt">야도가 미래다</span>
+          <span className="kings_message__txt">{kingsMessage}</span>
         </p>
       </div>
       <div

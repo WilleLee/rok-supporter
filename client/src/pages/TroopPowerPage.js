@@ -43,7 +43,7 @@ const TroopPowerPage = () => {
       <H1>Troop Power Calculator</H1>
       <form onSubmit={onSubmit} className="ct_form">
         <div className="ct_form__input_container">
-          <label htmlFor="t5">T5</label>
+          <label htmlFor="t5">T1</label>
           <input id="t5" type={"number"} />
         </div>
         <div className="ct_form__input_container">

@@ -26,7 +26,8 @@
   .ct_form__input_container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    width: 210px;
+    justify-content: space-between;
 
     label {
       font-weight: bold;
@@ -39,6 +40,14 @@
       padding: 3px 5px;
       color: $txt-color-light;
       text-align: center;
+      border: none;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      transition: border 0.3s ease-in-out;
+      position: relative;
+      &:focus {
+        border: 2px solid orange;
+      }
     }
   }
   input[type="submit"] {

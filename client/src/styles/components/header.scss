@@ -11,7 +11,7 @@
 
 .header__big_screen {
   padding: 5px 0;
-  margin: 0 10px;
+  margin: 0 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -106,5 +106,11 @@
         }
       }
     }
+  }
+}
+
+.header__small_screen {
+  &.hidden {
+    display: none;
   }
 }

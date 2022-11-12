@@ -5,3 +5,7 @@ export const useMessageStore = create((set) => ({
   addMessage: (str) => set({ message: str }),
   resetMessage: () => set({ message: "" }),
 }));
+
+export const useKingsMessage = create((set) => ({
+  kingsMessage: "야도가 미래다",
+}));
