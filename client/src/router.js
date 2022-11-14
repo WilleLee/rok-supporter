@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       { path: "tools/troop-power", element: <TroopPowerPage /> },
       { path: "tools/resource", element: <ResourcePage /> },
       { path: "test", element: <TestPage /> },
-      { path: "tools/kvk-calculator", element: <KvkCalculatorPage /> }
+      { path: "tools/kvk-calculator", element: <KvkCalculatorPage /> },
     ],
   },
 ]);
