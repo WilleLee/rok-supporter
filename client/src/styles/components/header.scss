@@ -84,6 +84,7 @@
 .header__bs__tools_container {
   position: relative;
   .header__bs__tools_toggled {
+    z-index: 2;
     position: absolute;
     width: 180px;
     top: 140%;
