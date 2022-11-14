@@ -29,7 +29,7 @@ const HomePage = () => {
         <img style={{ width: "100%" }} src="/main.png" alt="main" />
       </div>
       <p id="point" className={`${reached ? "reached" : ""}`}>
-        hi
+        안녕
       </p>
     </section>
   );
