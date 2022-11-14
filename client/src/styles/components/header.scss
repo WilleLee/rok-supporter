@@ -84,6 +84,7 @@
 .header__bs__tools_container {
   position: relative;
   .header__bs__tools_toggled {
+    z-index: 2;
     position: absolute;
     width: 180px;
     top: 140%;
@@ -110,8 +111,13 @@
 }
 
 .header__small_screen {
+  transition: all 0.2s ease-in-out;
+
   &.hidden {
     display: none;
+  }
+  &.expanded {
+    background-color: black;
   }
 }
 

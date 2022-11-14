@@ -28,6 +28,9 @@
     align-items: center;
     width: 210px;
     justify-content: space-between;
+    &.resource {
+      width: 250px;
+    }
 
     label {
       font-weight: bold;

@@ -4,6 +4,7 @@ import AdminLoginPage from "./pages/AdminLoginPage";
 import ErrorPage from "./pages/ErrorPage";
 import EventPage from "./pages/EventPage";
 import HomePage from "./pages/HomePage";
+import KvkCalculatorPage from "./pages/KvkCalculatorPage";
 import ResourcePage from "./pages/ResourcePage";
 import Root from "./pages/Root";
 import TroopPowerPage from "./pages/TroopPowerPage";
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       { path: "events", element: <EventPage /> },
       { path: "tools/troop-power", element: <TroopPowerPage /> },
       { path: "tools/resource", element: <ResourcePage /> },
-      {path: "test", element: <TestPage />}
+      { path: "test", element: <TestPage /> },
+      { path: "tools/kvk-calculator", element: <KvkCalculatorPage /> }
     ],
   },
 ]);
