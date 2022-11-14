@@ -2,6 +2,8 @@ import "../styles/components/header.scss";
 import { Link } from "react-router-dom";
 import useWindowSize from "../hooks/useWindowSize";
 import { useState } from "react";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const { innerWidth } = useWindowSize();
@@ -46,8 +48,10 @@ const Header = () => {
               </div>
             )}
           </div>
-          <div className="header__link">
-            <Link to={`/events`}>Events</Link>
+          <div>
+            <Link className="header__link" to={`/events`}>
+              Events
+            </Link>
           </div>
         </nav>
         <div className="header__bs__admin_btn">
@@ -61,9 +65,19 @@ const Header = () => {
           innerWidth <= 540 ? "" : "hidden"
         }`} /*small screen header*/
       >
-        {/*logo*/}
-        <p>hey hey hey</p>
-        <button>toggle button</button>
+        <div className="header__sc__main">
+          <div className="header__sc__toggle_container header__sc__part">
+            <button className="header__sc__toggle">
+              <FontAwesomeIcon icon={faBars} />
+            </button>
+          </div>
+          <div className="header__sc__logo_container header__sc__part">
+            <Link to={`/`}>
+              <img className="" src="/logo.png" alt="project logo" />
+            </Link>
+          </div>
+          <div className="header__sc__part"></div>
+        </div>
       </div>
     </header>
   );
