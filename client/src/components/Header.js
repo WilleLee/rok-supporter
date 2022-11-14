@@ -11,6 +11,10 @@ const Header = () => {
   const onClickToolsToogle = () => {
     setTools((prev) => !prev);
   };
+  const [toggle, setToggle] = useState(false);
+  const onClickToggle = () => {
+    setToggle((prev) => !prev);
+  };
   return (
     <header>
       <div
@@ -61,13 +65,13 @@ const Header = () => {
         </div>
       </div>
       <div
-        className={`header__small_screen ${
-          innerWidth <= 540 ? "" : "hidden"
+        className={`header__small_screen ${innerWidth <= 540 ? "" : "hidden"} ${
+          toggle ? "expanded" : ""
         }`} /*small screen header*/
       >
         <div className="header__sc__main">
           <div className="header__sc__toggle_container header__sc__part">
-            <button className="header__sc__toggle">
+            <button onClick={onClickToggle} className="header__sc__toggle">
               <FontAwesomeIcon icon={faBars} />
             </button>
           </div>
@@ -78,6 +82,7 @@ const Header = () => {
           </div>
           <div className="header__sc__part"></div>
         </div>
+        <div className="header__sc__list"></div>
       </div>
     </header>
   );
