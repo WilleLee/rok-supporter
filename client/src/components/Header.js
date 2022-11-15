@@ -4,17 +4,17 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useMouseover from "../hooks/useMouseover";
 
 const Header = () => {
   const { innerWidth } = useWindowSize();
-  const [tools, setTools] = useState(false);
-  const onClickToolsToogle = () => {
-    setTools((prev) => !prev);
-  };
   const [toggle, setToggle] = useState(false);
   const onClickToggle = () => {
     setToggle((prev) => !prev);
   };
+
+  const { state, mouseoverRef } = useMouseover();
+
   return (
     <header>
       <div
@@ -35,22 +35,23 @@ const Header = () => {
               About 1770
             </Link>
           </div>
-          <div className="header__bs__tools_container">
-            <span className="header__link" onClick={onClickToolsToogle}>
-              Tools {tools ? "👇🏻" : "👈🏻"}
-            </span>
-            {!tools ? null : (
-              <div className="header__bs__tools_toggled">
-                <ul>
-                  <li>
-                    <Link to={`/tools/troop-power`}>Troop Power</Link>
-                  </li>
-                  <li>
-                    <Link to={`/tools/resource`}>Resource Calculator</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
+          <div
+            ref={mouseoverRef}
+            className={`header__bs__tools_container ${state ? "hovered" : ""}`}
+          >
+            <span className="header__link">Tools</span>
+            <ul>
+              <li>
+                <span>
+                  <Link to={`/tools/troop-power`}>Troop Power</Link>
+                </span>
+              </li>
+              <li>
+                <span>
+                  <Link to={`/tools/resource`}>Resource Calculator</Link>
+                </span>
+              </li>
+            </ul>
           </div>
           <div>
             <Link className="header__link" to={`/events`}>
@@ -64,6 +65,8 @@ const Header = () => {
           </button>
         </div>
       </div>
+      {/*header for big screen 👆🏻*/}
+      {/*header for small screen 👇🏻*/}
       <div
         className={`header__small_screen ${innerWidth <= 540 ? "" : "hidden"} ${
           toggle ? "expanded" : ""
@@ -82,7 +85,31 @@ const Header = () => {
           </div>
           <div className="header__sc__part"></div>
         </div>
-        <div className="header__sc__list"></div>
+        <div className="header__sc__list">
+          <nav>
+            <div className="header__sc__link lg">
+              <Link to={`/about`}>About 1770</Link>
+            </div>
+            <div className="header__sc__tools">
+              <span className="header__sc__link lg">Tools</span>
+              <ul>
+                <li>
+                  <span className="header__sc__link sm">
+                    <Link to={`/tools/troop-power`}>Troop Power</Link>
+                  </span>
+                </li>
+                <li>
+                  <span className="header__sc__link sm">
+                    <Link to={`/tools/resource`}>Resource Calculator</Link>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="header__sc__link lg">
+              <Link to={`/events`}>Events</Link>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );

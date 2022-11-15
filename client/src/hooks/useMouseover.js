@@ -3,14 +3,13 @@ import { useEffect, useRef, useState } from "react";
 const useMouseover = () => {
   const [state, setState] = useState(false);
   const mouseoverRef = useRef();
-  const { current } = mouseoverRef;
   useEffect(() => {
+    const { current } = mouseoverRef;
+    if (!current) return;
     const onMouseover = () => {
-      if (!current) return;
       setState(true);
     };
     const onMouseleave = () => {
-      if (!current) return;
       setState(false);
     };
     current.addEventListener("mouseover", onMouseover);
@@ -19,7 +18,7 @@ const useMouseover = () => {
       current.removeEventListener("mouseover", onMouseover);
       current.removeEventListener("mouseleave", onMouseleave);
     };
-  }, [current]);
+  }, []);
   return { state, mouseoverRef };
 };
 

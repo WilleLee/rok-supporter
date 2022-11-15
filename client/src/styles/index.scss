@@ -25,6 +25,10 @@ body {
   color: $txt-color-light;
 }
 
+section {
+  z-index: -1;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: $bg-color-dark;

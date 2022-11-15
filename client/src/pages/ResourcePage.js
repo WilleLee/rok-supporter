@@ -1,11 +1,11 @@
 import ResourceForm from "../components/ResourceForm";
 import "../styles/pages/resource.scss";
-import { H1 } from "../components/styled.js";
+import { H2 } from "../components/styled.js";
 
 const ResourcePage = () => {
   return (
     <section>
-      <H1>Resource Calculator</H1>
+      <H2>Resource Calculator</H2>
       <div className="resource__grid_container">
         <div /*옥수수*/ className="resource__grid_item">
           <ResourceForm type={"corn"} />

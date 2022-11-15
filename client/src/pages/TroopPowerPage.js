@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H1 } from "../components/styled";
+import { H2 } from "../components/styled";
 import troopPowerData from "../data/troopPowerData";
 import { useMessageStore } from "../store";
 import shallow from "zustand/shallow";
@@ -40,7 +40,7 @@ const TroopPowerPage = () => {
   return (
     <section>
       {!message.length ? null : <p className="message_box">{message}</p>}
-      <H1>Troop Power Calculator</H1>
+      <H2>Troop Power Calculator</H2>
       <form onSubmit={onSubmit} className="ct_form troop_power">
         <div className="ct_form__input_container">
           <label htmlFor="t5">T5</label>

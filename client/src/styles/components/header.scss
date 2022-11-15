@@ -1,5 +1,10 @@
 @import "../varibales.scss";
 
+header {
+  background-color: inherit;
+  z-index: 3;
+}
+
 .header__link {
   cursor: pointer;
   opacity: 0.8;
@@ -16,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   transition: padding 0.3s ease-in-out;
+  background-color: inherit;
   .header__logo_block {
     width: 10%;
   }
@@ -83,6 +89,37 @@
 
 .header__bs__tools_container {
   position: relative;
+  ul {
+    display: none;
+  }
+  &.hovered {
+    ul {
+      display: block;
+      width: 210px;
+      min-width: 100%;
+      padding: 20px;
+      position: absolute;
+      top: 100%;
+      left: -50px;
+      animation: hoveredList 0.1s ease-in-out forwards;
+      z-index: 3;
+      li {
+        z-index: 4;
+        padding: 20px 10px 0;
+        background-color: white;
+        span {
+          color: $txt-color-light;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      li:last-child {
+        padding-bottom: 20px;
+      }
+    }
+  }
   .header__bs__tools_toggled {
     z-index: 2;
     position: absolute;
@@ -111,13 +148,38 @@
 }
 
 .header__small_screen {
-  transition: all 0.2s ease-in-out;
+  //transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+  position: relative;
 
   &.hidden {
     display: none;
   }
   &.expanded {
-    background-color: black;
+    animation: toggledAppearMain 0.2s ease-in-out forwards;
+    .header__sc__list {
+      display: block;
+      position: absolute;
+      background-color: black;
+      padding: 20px 0 40px;
+      top: 100%;
+      left: 0;
+      right: 0;
+      animation: toggledAppearList 0.2s ease-in-out forwards;
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .header__sc__tools {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          li:first-child {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -142,12 +204,30 @@
   }
 }
 
+.header__sc__list {
+  display: none;
+}
+
 .header__sc__toggle {
   background-color: transparent;
   border: none;
   color: $txt-color-light;
   font-size: 18px;
   cursor: pointer;
+}
+
+.header__sc__link {
+  color: white;
+  &.lg {
+    padding-left: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  &.sm {
+    padding-left: 30px;
+    font-size: 18px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -158,5 +238,34 @@
 @media (prefers-color-scheme: light) {
   .header__sc__toggle {
     color: $txt-color-light;
+  }
+}
+
+@keyframes hoveredList {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toggledAppearMain {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: black;
+  }
+}
+
+@keyframes toggledAppearList {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import resourcePackage from "../data/resourcePackage";
-import { H2 } from "./styled";
+import { H3 } from "./styled";
 
 const ResourceForm = ({ type }) => {
   // prop.type = "corn"??
@@ -50,7 +50,7 @@ const ResourceForm = ({ type }) => {
       }}
       className="ct_form resource"
     >
-      <H2>{type ? type.toUpperCase() : null}</H2>
+      <H3>{type ? type.toUpperCase() : null}</H3>
       <div className="ct_form__input_container resource">
         <label htmlFor={`${type}-0`}>{pack[0]}</label>
         <input id={`${type}-0`} type={"number"} onChange={onChange.zero} />
