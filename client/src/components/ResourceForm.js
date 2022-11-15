@@ -44,7 +44,12 @@ const ResourceForm = ({ type }) => {
     }
   }
   return (
-    <form className="ct_form">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+      className="ct_form resource"
+    >
       <H2>{type ? type.toUpperCase() : null}</H2>
       <div className="ct_form__input_container resource">
         <label htmlFor={`${type}-0`}>{pack[0]}</label>
@@ -77,7 +82,7 @@ const ResourceForm = ({ type }) => {
       <div style={{ marginTop: "10px" }} className="ct_cal_result">
         <p>
           You have <span>{sums.reduce((prev, curr) => prev + curr, 0)}</span>{" "}
-          corns.
+          {type}s.
         </p>
       </div>
     </form>
