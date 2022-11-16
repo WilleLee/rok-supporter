@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "../styles/components/footer.scss";
+import useWindowSize from "../hooks/useWindowSize";
 
 const Footer = () => {
+  const { innerWidth } = useWindowSize();
   return (
     <>
       <footer className="footer__container">
@@ -13,8 +15,8 @@ const Footer = () => {
         </div>
         <div className="footer__front_message">
           <span>
-            If you're interested in migrating to the kingdom 1770, contact us
-            through{" "}
+            If you're interested in migrating to the kingdom 1770,
+            {innerWidth > 870 ? " " : <br />}contact us through{" "}
             <a
               href="https://open.kakao.com/o/gTcrAlge"
               target={"_blank"}

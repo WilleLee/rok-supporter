@@ -9,3 +9,8 @@ export const useMessageStore = create((set) => ({
 export const useKingsMessage = create((set) => ({
   kingsMessage: "야도가 미래다",
 }));
+
+export const useLanguageStore = create((set) => ({
+  langMode: "en",
+  changeLangMode: () => set((state) => (state.langMode === "en" ? "ko" : "en")),
+}));
