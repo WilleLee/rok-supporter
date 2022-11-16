@@ -11,10 +11,7 @@ const Footer = () => {
   const { innerWidth } = useWindowSize();
   return (
     <>
-      <footer
-        className="footer__container"
-        style={innerWidth < 540 ? { textAlign: "center" } : {}}
-      >
+      <footer className={`footer__container ${innerWidth < 540 ? "sc" : ""}`}>
         <div className="footer__title_wrapper">
           <h4 className="footer__title">
             desinged and developed by <span>N70 Orange 🍊</span>
@@ -37,7 +34,7 @@ const Footer = () => {
             </span>
             <span>
               Otherwise, you may simply message <strong>ADINAVO of N70D</strong>{" "}
-              or{innerWidth > 870 ? " " : <br />}contact us through{" "}
+              or{innerWidth > 870 ? " " : <br />}{" "}
               <strong>
                 <span style={{ color: "orange" }}>N70 Orange</span> of N70s
               </strong>{" "}

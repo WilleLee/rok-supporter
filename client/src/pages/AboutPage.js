@@ -1,23 +1,19 @@
 import { H1, H2 } from "../components/styled";
 import useWindowSize from "../hooks/useWindowSize";
+import "../styles/pages/about.scss";
+
+const $WELCOME_MESSAGE = "All Hail Captain and Fruits";
 
 const AboutPage = () => {
   const { innerWidth } = useWindowSize();
   return (
     <section>
       {innerWidth >= 540 ? (
-        <H1>All Hail Captain and Fruits</H1>
+        <H1>{$WELCOME_MESSAGE}</H1>
       ) : (
-        <H2>All Hail Captain and Fruits</H2>
+        <H2>{$WELCOME_MESSAGE}</H2>
       )}
-      <div
-        style={{
-          padding: "0 20px",
-          margin: "0 auto 30px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="about__iframe_container">
         <iframe
           width="560"
           height="315"
@@ -28,7 +24,13 @@ const AboutPage = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <p>
+      <div className="about__container" /*container*/>
+        <div /*introduce the kingdom as an unity of two different main alliances*/
+        ></div>
+        <div /*introduce main officers of the kingdom*/></div>
+        <div /*influential parties of the kingdom*/></div>
+        <div /*brief KvK history of the kingdom*/></div>
+        <div /*systems of KvK contribution and server events*/></div>
         왕국소개 페이지 fruit fruit fruit fruitfruit fruitfruit fruitfruit
         fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
         fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
@@ -149,7 +151,7 @@ const AboutPage = () => {
         fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
         fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
         fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-      </p>
+      </div>
     </section>
   );
 };

@@ -108,6 +108,7 @@ header {
         padding: 20px 10px 0;
         background-color: white;
         span {
+          font-weight: bold;
           color: $txt-color-light;
           opacity: 0.7;
           &:hover {
