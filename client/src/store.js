@@ -10,7 +10,11 @@ export const useKingsMessage = create((set) => ({
   kingsMessage: "야도가 미래다",
 }));
 
-export const useLanguageStore = create((set) => ({
+export const useLangModeStore = create((set) => ({
   langMode: "en",
-  changeLangMode: () => set((state) => (state.langMode === "en" ? "ko" : "en")),
+  changeLangMode: () =>
+    set((state) => {
+      if (state.langMode === "en") return { langMode: "ko" };
+      if (state.langMode === "ko") return { langMode: "en" };
+    }),
 }));

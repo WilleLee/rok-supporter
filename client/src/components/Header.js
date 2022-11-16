@@ -5,8 +5,12 @@ import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useMouseover from "../hooks/useMouseover";
+import { useLangModeStore } from "../store";
 
 const Header = () => {
+  const { langMode } = useLangModeStore((state) => ({
+    langMode: state.langMode,
+  }));
   const { innerWidth } = useWindowSize();
   const [toggle, setToggle] = useState(false);
   const onClickToggle = () => {
@@ -32,36 +36,46 @@ const Header = () => {
         <nav>
           <div>
             <Link className="header__link" to={`/about`}>
-              About 1770
+              {langMode === "en" ? "About 1770" : "1770 소개"}
             </Link>
           </div>
           <div
             ref={mouseoverRef}
             className={`header__bs__tools_container ${state ? "hovered" : ""}`}
           >
-            <span className="header__link">Tools</span>
+            <span className="header__link">
+              {langMode === "en" ? "Tools" : "각종 도구"}
+            </span>
             <ul>
               <li>
                 <span>
-                  <Link to={`/tools/troop-power`}>Troop Power</Link>
+                  <Link to={`/tools/troop-power`}>
+                    {langMode === "en" ? "Troop Power" : "부대 전투력"}
+                  </Link>
                 </span>
               </li>
               <li>
                 <span>
-                  <Link to={`/tools/resource`}>Resource Calculator</Link>
+                  <Link to={`/tools/resource`}>
+                    {langMode === "en"
+                      ? "Resource Calculator"
+                      : "보유 자원량 계산"}
+                  </Link>
                 </span>
               </li>
             </ul>
           </div>
           <div>
             <Link className="header__link" to={`/events`}>
-              Events
+              {langMode === "en" ? "Events" : "이벤트"}
             </Link>
           </div>
         </nav>
         <div className="header__bs__admin_btn">
           <button className="ct_btn">
-            <Link to={`/admin-login`}>Admin</Link>
+            <Link to={`/admin-login`}>
+              {langMode === "en" ? "Admin" : "관리자"}
+            </Link>
           </button>
         </div>
       </div>
@@ -88,25 +102,37 @@ const Header = () => {
         <div className="header__sc__list">
           <nav>
             <div className="header__sc__link lg">
-              <Link to={`/about`}>About 1770</Link>
+              <Link to={`/about`}>
+                {langMode === "en" ? "About 1770" : "1770 소개"}
+              </Link>
             </div>
             <div className="header__sc__tools">
-              <span className="header__sc__link lg">Tools</span>
+              <span className="header__sc__link lg">
+                {langMode === "en" ? "Tools" : "각종 도구"}
+              </span>
               <ul>
                 <li>
                   <span className="header__sc__link sm">
-                    <Link to={`/tools/troop-power`}>Troop Power</Link>
+                    <Link to={`/tools/troop-power`}>
+                      {langMode === "en" ? "Troop Power" : "부대 전투력"}
+                    </Link>
                   </span>
                 </li>
                 <li>
                   <span className="header__sc__link sm">
-                    <Link to={`/tools/resource`}>Resource Calculator</Link>
+                    <Link to={`/tools/resource`}>
+                      {langMode === "en"
+                        ? "Resource Calculator"
+                        : "보유 자원량 계산"}
+                    </Link>
                   </span>
                 </li>
               </ul>
             </div>
             <div className="header__sc__link lg">
-              <Link to={`/events`}>Events</Link>
+              <Link to={`/events`}>
+                {langMode === "en" ? "Events" : "이벤트"}
+              </Link>
             </div>
           </nav>
         </div>
