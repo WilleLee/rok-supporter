@@ -1,0 +1,52 @@
+@import "../varibales.scss";
+
+.footer__container {
+  margin-top: 30px;
+  padding: 20px 50px;
+  background-color: $bg-color-dark;
+  color: $txt-color-dark;
+}
+.footer__title_wrapper {
+  margin-bottom: 10px;
+  h4 {
+    font-weight: bold;
+    font-size: 12px;
+    span {
+      color: orange;
+      font-size: 18px;
+    }
+  }
+}
+
+.footer__front_message {
+  opacity: 0.8;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer__copyrights {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  span {
+    font-size: 12px;
+    opacity: 0.6;
+  }
+  span:first-child {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+.footer__link {
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer__container {
+    background-color: $bg-color-light;
+    color: $txt-color-light;
+  }
+}

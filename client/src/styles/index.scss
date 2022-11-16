@@ -29,6 +29,10 @@ section {
   z-index: -1;
 }
 
+strong {
+  font-weight: bold;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: $bg-color-dark;
