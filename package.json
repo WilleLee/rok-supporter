@@ -6,8 +6,8 @@
   "scripts": {
     "dev:client": "cd client && npm ci --dev && npm run build && cd ..",
     "dev:server": "cd server && npm ci --dev && npm run build && cd ..",
-    "heroku-prebuild": "npm run dev:client && npm run dev:server && mv ./client/build ./server/build",
-    "start": "cd server && npm run start"
+    "prebuild": "npm run dev:client && npm run dev:server && mv ./client/build ./server/build",
+    "start": "npm run prebuild && cd server && npm run start"
   },
   "author": "Wille Lee <1992season@gmail.com>",
   "license": "ISC"

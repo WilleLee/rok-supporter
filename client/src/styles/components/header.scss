@@ -158,6 +158,7 @@ header {
   &.expanded {
     animation: toggledAppearMain 0.2s ease-in-out forwards;
     .header__sc__list {
+      z-index: 3;
       display: block;
       position: absolute;
       background-color: black;
