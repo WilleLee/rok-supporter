@@ -17,6 +17,12 @@ app.get("/file", (req,res) => {
   
 })
 
+app.use("/testPost", function(req,res) {
+  console.log("name   : "+req.body.information.name);
+  console.log("userid : "+req.body.information.userid);
+  res.json({content: 'done'});
+});
+
 
 
 app.listen($PORT, () => {
