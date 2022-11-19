@@ -63,6 +63,15 @@ const Header = () => {
                   </Link>
                 </span>
               </li>
+              <li>
+                <span>
+                  <Link to={`/tools/hp-calculator`}>
+                    {langMode === "en"
+                      ? "KvK HP Calculator"
+                      : "명예 포인트 계산기"}
+                  </Link>
+                </span>
+              </li>
             </ul>
           </div>
           <div>

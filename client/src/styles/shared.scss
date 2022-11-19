@@ -33,6 +33,7 @@
       width: 90px;
     }
   }
+
   .ct_form__input_container {
     display: flex;
     align-items: center;
@@ -76,6 +77,10 @@
     border-radius: 4px;
     font-weight: bold;
   }
+}
+
+.ct_form.hp {
+  flex-direction: row;
 }
 
 .ct_cal_result {
