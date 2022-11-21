@@ -20,6 +20,10 @@ export const useLangModeStore = create((set) => ({
 }));
 
 export const useLoggedIn = create((set) => ({
+  // admin-login page에서 클라이언트는 비밀번호를 입력하여 controller에서 request
+  // controller는 db model에 저장된 정보와 입력된 비밀번호가 일치하는지 확인하여 statusCode를 보냄
+  // response.status === 200 이면 login dispatch 발동하고 홈으로
+  // response.status === 400 이면 message와 함께 홈으로
   loggedIn: false,
   login: () => set({ loggedIn: true }),
 }));
