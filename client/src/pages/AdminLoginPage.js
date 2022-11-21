@@ -12,8 +12,15 @@ const AdminLoginPage = () => {
         {langMode === "en" ? `Sign in as Administrator` : `관리자로 접속`}
       </H2>
       <form className="admin_login__form">
-        <input type={`password`} placeholder={`Admin Password`} />
-        <input type={`submit`} value={`Confirm`} />
+        <input
+          type={`password`}
+          placeholder={
+            langMode === "en"
+              ? "Admin password is required."
+              : "관리자 비밀번호를 입력하세요."
+          }
+        />
+        <input type={`submit`} value={langMode === "en" ? "Confirm" : "확인"} />
       </form>
     </section>
   );

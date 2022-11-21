@@ -5,12 +5,8 @@ import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useMouseover from "../hooks/useMouseover";
-import { useLangModeStore } from "../store";
 
-const Header = () => {
-  const { langMode } = useLangModeStore((state) => ({
-    langMode: state.langMode,
-  }));
+const Header = ({ langMode }) => {
   const { innerWidth } = useWindowSize();
   const [toggle, setToggle] = useState(false);
   const onClickToggle = () => {

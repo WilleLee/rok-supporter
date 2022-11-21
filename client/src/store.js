@@ -7,7 +7,13 @@ export const useMessageStore = create((set) => ({
 }));
 
 export const useKingsMessage = create((set) => ({
-  kingsMessage: "야도가 미래다",
+  kingsMessage: "현재 은행 오픈 중. 자원 기부 가능합니다.",
+  changeKingsMessage: (str) =>
+    set((state) => {
+      return str.length > 0 && str.length <= 25
+        ? { kingsMessage: str }
+        : { kingsMessage: state.kingsMessage };
+    }),
 }));
 
 export const useLangModeStore = create((set) => ({
