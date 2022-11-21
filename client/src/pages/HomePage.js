@@ -37,7 +37,7 @@ const HomePage = () => {
           {langMode === "en" ? "sidhishdgsi" : "함ㄴ야혼먀호"}
         </p>
       </div>
-      <Footer />
+      <Footer langMode={langMode} />
     </section>
   );
 };

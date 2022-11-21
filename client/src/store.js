@@ -18,3 +18,8 @@ export const useLangModeStore = create((set) => ({
       if (state.langMode === "ko") return { langMode: "en" };
     }),
 }));
+
+export const useLoggedIn = create((set) => ({
+  loggedIn: false,
+  login: () => set({ loggedIn: true }),
+}));

@@ -2,12 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "../styles/components/footer.scss";
 import useWindowSize from "../hooks/useWindowSize";
-import { useLangModeStore } from "../store";
 
-const Footer = () => {
-  const { langMode } = useLangModeStore((state) => ({
-    langMode: state.langMode,
-  }));
+const Footer = ({ langMode }) => {
   const { innerWidth } = useWindowSize();
   return (
     <>

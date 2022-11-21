@@ -80,7 +80,9 @@
 }
 
 .ct_form.hp {
-  flex-direction: row;
+  .ct_form__input_wrapper {
+    display: flex;
+  }
 }
 
 .ct_cal_result {
