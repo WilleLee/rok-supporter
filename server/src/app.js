@@ -10,20 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("build"));
 
-app.get("/test", (req,res) => res.json({content:'hi'}));
-
-app.get("/file", (req,res) => {
-    return res.sendFile(__dirname + "/build/index.html");
-  
-})
-
-app.use("/testPost", function(req,res) {
-  console.log("name   : "+req.body.information.name);
-  console.log("userid : "+req.body.information.userid);
-  res.json({content: 'done'});
-});
-
-
+const router = require('./route');
+app.use('/', router);
 
 app.listen($PORT, () => {
   console.log(`The ROK Supporter now runs on the port number ${$PORT}`);
