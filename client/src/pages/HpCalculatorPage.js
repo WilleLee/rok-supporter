@@ -5,6 +5,8 @@ import hpCalculators from "../data/hpCalculators";
 import { useLangModeStore, useMessageStore } from "../store";
 
 let timeoutId = null;
+const enMsg = "Optimized to HA and So8 KvK seasons.";
+const koMsg = "영찬 및 치경에 최적화되어 있습니다.";
 
 const HpCalculatorPage = () => {
   const { message, addMessage, resetMessage } = useMessageStore(
@@ -19,10 +21,7 @@ const HpCalculatorPage = () => {
     langMode: state.langMode,
   }));
   useEffect(() => {
-    const $optMessage =
-      langMode === "en"
-        ? "Optimized to HA and So8 KvK seasons."
-        : "영찬 및 치경에 최적화되어 있습니다.";
+    const $optMessage = langMode === "en" ? enMsg : koMsg;
     addMessage($optMessage);
     timeoutId = setTimeout(() => {
       resetMessage();
