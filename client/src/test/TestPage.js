@@ -11,6 +11,7 @@ const TestPage = () => {
     useEffect(() => {
         fetch('http://localhost:8080/test')
         .then(res => {
+            console.log('done');
             return res.json()
         })
         .then(res => {
@@ -32,7 +33,10 @@ const TestPage = () => {
         fetch('http://localhost:8080/testPost', req)
         .then((res) => res.json())
         .then((res) => {
-            console.log(res.content);
+            console.log(res[0].name);
+            setInformation({
+                name : res[0].name
+            })
         })
 
         setInformation({
@@ -52,8 +56,8 @@ const TestPage = () => {
     return (<section>
         <h1>this is test page</h1>
         <p>{string}</p>
-        <input name="name" placeholder="name" onChange={onChange} value={name}></input><p></p>
-        <input name="userid" placeholder="userid" onChange={onChange} value={userid}></input>
+        <input name="name" placeholder="name" onChange={onChange} value={name || ''}></input><p></p>
+        <input name="userid" placeholder="userid" onChange={onChange} value={userid || ''}></input>
         <button type="submit" onClick={contentSubmit}>send</button>
     </section>)
 };

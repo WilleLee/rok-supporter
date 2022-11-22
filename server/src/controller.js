@@ -1,8 +1,8 @@
-const maria  = require('../database/connect/maria');
-maria.connect();
+const mysql  = require('./rds');
+mysql.connect();
 
 module.exports = {
-  needs : () => XMLHttpRequestUpload,
+  needs : () => upload,
 
   api : {
 
@@ -15,7 +15,7 @@ module.exports = {
     },
 
     testDb : (req,res) => {
-      maria.query("SELECT * FROM roksupporter.table;", (err, rows) => {
+      mysql.query("SELECT * FROM rok_supporter.testData;", (err, rows) => {
         if(!err) {
           res.send(rows);
         } else {
@@ -26,7 +26,7 @@ module.exports = {
     },
 
     testPost : (req,res) => {
-      maria.query("SELECT name FROM roksupporter.table WHERE id = '" + req.body.test.userid+"':", (err, result) => {
+      mysql.query("SELECT name FROM rok_supporter.testData WHERE id = '" + req.body.information.userid+"';", (err, result) => {
         if(!err) {
           res.json(result);
         } else {
@@ -35,7 +35,7 @@ module.exports = {
         }
       });
 
-      console.log(" userid : "+req.body.test.userid);
+      console.log(" userid : "+req.body.information.userid);
     }
   }
 }
