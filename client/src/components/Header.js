@@ -132,6 +132,15 @@ const Header = ({ langMode }) => {
                     </Link>
                   </span>
                 </li>
+                <li>
+                  <span className="header__sc__link sm">
+                    <Link to={`/tools/hp-calculator`}>
+                      {langMode === "en"
+                        ? "KvK HP Calculator"
+                        : "KvK 명예 포인트 계산기"}
+                    </Link>
+                  </span>
+                </li>
               </ul>
             </div>
             <div className="header__sc__link lg">

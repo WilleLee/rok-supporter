@@ -76,18 +76,35 @@
     border: none;
     border-radius: 4px;
     font-weight: bold;
+    cursor: pointer;
   }
 }
 
 .ct_form.hp {
-  .ct_form__input_wrapper {
-    display: flex;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 10px;
+    .ct_form__input_section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+@media screen and (max-width: 830px) {
+  .ct_form.hp .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
 .ct_cal_result {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
   p {
     span {
       font-weight: bold;
@@ -97,17 +114,35 @@
 }
 
 .message_box {
-  width: 330px;
-  height: 40px;
-  margin: 0 auto 10px;
+  position: fixed;
+  top: 10px;
+  left: 30vw;
+  width: 40vw;
+  padding: 5px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background-color: $color-green;
+  text-align: center;
   color: white;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
   border-radius: 10px;
+  animation: appearMessageBox 3s ease-in-out forwards;
+}
+@keyframes appearMessageBox {
+  0% {
+    transform: translateY(-40px);
+  }
+  15% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+  }
 }
 
 .ct_langmode_btn {
