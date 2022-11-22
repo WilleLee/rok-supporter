@@ -10,13 +10,13 @@ const AdminLoginPage = () => {
   }));
   const onSubmit = async (event) => {
     event.preventDefault();
-
+    const { password: value } = event.target;
     const res = await fetch($apiUrl, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(event.target),
+      body: JSON.stringify({ password: value }),
     }); // statusCode 200 400
     const json = await res.json(); // success: true / false
     console.log(json);
