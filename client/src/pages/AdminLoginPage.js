@@ -13,6 +13,7 @@ const AdminLoginPage = () => {
       </H2>
       <form className="admin_login__form">
         <input
+          name="password"
           type={`password`}
           placeholder={
             langMode === "en"
