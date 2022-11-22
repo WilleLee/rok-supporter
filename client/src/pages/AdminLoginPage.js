@@ -20,9 +20,11 @@ const AdminLoginPage = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(value),
-    });
-    const json = await res.json();
+    }); // statusCode 200 400
+    const json = await res.json(); // success: true / false
     console.log(json);
+    // json.success === true -> store loggedIn = true -> home page
+    // josn.success false -> store -> home page
   };
   return (
     <section>
