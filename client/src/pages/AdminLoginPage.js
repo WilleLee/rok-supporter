@@ -2,7 +2,7 @@ import { H2 } from "../components/styled";
 import { useLangModeStore } from "../store";
 import "../styles/pages/adminLogin.scss";
 
-const $apiUrl = "http://localhost:8080/login";
+const $apiUrl = "http://localhost:8080/api/login";
 
 const AdminLoginPage = () => {
   const { langMode } = useLangModeStore((state) => ({
@@ -19,7 +19,7 @@ const AdminLoginPage = () => {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(value),
+      body: JSON.stringify({ password: value }),
     }); // statusCode 200 400
     const json = await res.json(); // success: true / false
     console.log(json);
@@ -29,7 +29,7 @@ const AdminLoginPage = () => {
   return (
     <section>
       <H2>
-        {langMode === "en" ? `Sign in as Administrator` : `관리자로 접속`}
+        {langMode === "en" ? "Sign in as Administrator" : "관리자로 접속"}
       </H2>
       <form onSubmit={onSubmit} className="admin_login__form">
         <input
