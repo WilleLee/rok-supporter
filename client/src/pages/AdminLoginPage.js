@@ -10,7 +10,9 @@ const AdminLoginPage = () => {
   }));
   const onSubmit = async (event) => {
     event.preventDefault();
-    const { password: value } = event.target;
+    const {
+      password: { value },
+    } = event.target;
     const res = await fetch($apiUrl, {
       method: "POST",
       headers: {
