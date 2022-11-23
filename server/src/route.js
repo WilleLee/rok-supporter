@@ -7,5 +7,6 @@ router.get('/file', controller.api.file);
 router.get('/testDb', controller.api.testDb);
 
 router.post('/testPost', controller.api.testPost);
+router.post('/api/login', controller.api.login);
 
 module.exports = router;
