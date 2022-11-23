@@ -32,4 +32,5 @@ export const useLoggedIn = create((set) => ({
   // response.status === 400 이면 message와 함께 홈으로
   loggedIn: false,
   login: () => set({ loggedIn: true }),
+  logout: () => set({ loggedIn: false }),
 }));

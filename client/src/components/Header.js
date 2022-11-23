@@ -1,12 +1,13 @@
 import "../styles/components/header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useWindowSize from "../hooks/useWindowSize";
 import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useMouseover from "../hooks/useMouseover";
 
-const Header = ({ langMode }) => {
+const Header = ({ langMode, loggedIn, logout }) => {
+  const navigate = useNavigate();
   const { innerWidth } = useWindowSize();
   const [toggle, setToggle] = useState(false);
   const onClickToggle = () => {
@@ -14,6 +15,13 @@ const Header = ({ langMode }) => {
   };
 
   const { state, mouseoverRef } = useMouseover();
+
+  const onClickLogout = () => {
+    logout();
+    console.log(loggedIn);
+    console.log("logged out");
+    navigate("/admin-login");
+  };
 
   return (
     <header>
@@ -77,11 +85,17 @@ const Header = ({ langMode }) => {
           </div>
         </nav>
         <div className="header__bs__admin_btn">
-          <button className="ct_btn">
-            <Link to={`/admin-login`}>
-              {langMode === "en" ? "Admin" : "관리자"}
-            </Link>
-          </button>
+          {!loggedIn ? (
+            <button className="ct_btn">
+              <Link to={`/admin-login`}>
+                {langMode === "en" ? "Admin" : "관리자"}
+              </Link>
+            </button>
+          ) : (
+            <button className="ct_btn" onClick={onClickLogout}>
+              {langMode === "en" ? "Logout" : "로그아웃"}
+            </button>
+          )}
         </div>
       </div>
       {/*header for big screen 👆🏻*/}
