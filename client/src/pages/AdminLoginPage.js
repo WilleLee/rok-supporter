@@ -21,7 +21,7 @@ const AdminLoginPage = () => {
       body: JSON.stringify({ password: value }),
     }); // statusCode 200 400
     const json = await res.json(); // success: true / false
-    console.log(json);
+    console.log(json.checkPw);
     // json.success === true -> store loggedIn = true -> home page
     // josn.success false -> store -> home page
   };

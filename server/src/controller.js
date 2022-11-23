@@ -10,6 +10,15 @@ module.exports = {
       res.json({content : 'now connected with server'})
     },
 
+    login : (req,res) => {
+      console.log(req.body.password);
+      if(req.body.password == 'aaa') {
+        res.json({checkPw : 'true'});
+      } else {
+        res.json({checkPw : 'false'});
+      }
+    },
+
     file : (req,res) => {
       return res.sendFile(__dirname + "/build/index.html")
     },
