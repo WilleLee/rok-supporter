@@ -1,6 +1,6 @@
 import { H1, H2 } from "../components/styled";
 import useWindowSize from "../hooks/useWindowSize";
-import "../styles/pages/about.scss";
+import styles from "../styles/pages/about.module.scss";
 
 const $WELCOME_MESSAGE = "All Hail Captain and Fruits";
 
@@ -13,7 +13,7 @@ const AboutPage = () => {
       ) : (
         <H2>{$WELCOME_MESSAGE}</H2>
       )}
-      <div className="about__iframe_container">
+      <div className={styles.iframe_container}>
         <iframe
           width="560"
           height="315"
@@ -24,7 +24,7 @@ const AboutPage = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="about__container" /*container*/>
+      <div className={styles.contents__container} /*container*/>
         <div /*introduce the kingdom as an unity of two different main alliances*/
         ></div>
         <div /*introduce main officers of the kingdom*/></div>

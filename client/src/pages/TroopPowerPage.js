@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { H2 } from "../components/styled";
 import troopPowerData from "../data/troopPowerData";
-import { useMessageStore } from "../store";
+import { useLangModeStore, useMessageStore } from "../store";
 import shallow from "zustand/shallow";
 
 const TroopPowerPage = () => {
+  const { langMode } = useLangModeStore((state) => ({
+    langMode: state.langMode,
+  }));
+
   const { message, addMessage, resetMessage } = useMessageStore(
     (state) => ({
       message: state.message,
@@ -40,7 +44,9 @@ const TroopPowerPage = () => {
   return (
     <section>
       {!message.length ? null : <p className="message_box">{message}</p>}
-      <H2>Troop Power Calculator</H2>
+      <H2>
+        {langMode === "en" ? "Troop Power Calculator" : "부대 전투력 계산기"}
+      </H2>
       <form onSubmit={onSubmit} className="ct_form troop_power">
         <div className="ct_form__input_container">
           <label htmlFor="t5">T5</label>
@@ -62,12 +68,21 @@ const TroopPowerPage = () => {
           <label htmlFor="t1">T1</label>
           <input id="t1" type={"number"} />
         </div>
-        <input type={"submit"} value="calculate" />
+        <input
+          type={"submit"}
+          value={langMode === "en" ? "Calculate" : "계산"}
+        />
       </form>
       <div className="ct_cal_result">
-        <p>
-          These are summed up to <span>{troopPower}</span> troop power.
-        </p>
+        {langMode === "en" ? (
+          <p>
+            These are summed up to <span>{troopPower}</span> troop power.
+          </p>
+        ) : (
+          <p>
+            총 부대 전투력은 <span>{troopPower}</span>입니다.
+          </p>
+        )}
       </div>
     </section>
   );

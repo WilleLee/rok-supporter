@@ -5,12 +5,8 @@ import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useMouseover from "../hooks/useMouseover";
-import { useLangModeStore } from "../store";
 
-const Header = () => {
-  const { langMode } = useLangModeStore((state) => ({
-    langMode: state.langMode,
-  }));
+const Header = ({ langMode }) => {
   const { innerWidth } = useWindowSize();
   const [toggle, setToggle] = useState(false);
   const onClickToggle = () => {
@@ -133,6 +129,15 @@ const Header = () => {
                       {langMode === "en"
                         ? "Resource Calculator"
                         : "보유 자원량 계산"}
+                    </Link>
+                  </span>
+                </li>
+                <li>
+                  <span className="header__sc__link sm">
+                    <Link to={`/tools/hp-calculator`}>
+                      {langMode === "en"
+                        ? "KvK HP Calculator"
+                        : "KvK 명예 포인트 계산기"}
                     </Link>
                   </span>
                 </li>

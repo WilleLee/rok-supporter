@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import resourcePackage from "../data/resourcePackage";
 import { H3 } from "./styled";
 
-const ResourceForm = ({ type }) => {
+const ResourceForm = ({ type, langMode }) => {
   // prop.type = "corn"??
   const pack = resourcePackage[type];
   const [sums, setSums] = useState([0, 0, 0, 0, 0, 0, 0]);
@@ -43,6 +43,28 @@ const ResourceForm = ({ type }) => {
       setSums(copy);
     }
   }
+  const [resourceName, setResourceName] = useState(type);
+  useEffect(() => {
+    const handleLangMode = () => {
+      switch (type) {
+        case "corn":
+          langMode === "en" ? setResourceName(type) : setResourceName("옥수수");
+          break;
+        case "wood":
+          langMode === "en" ? setResourceName(type) : setResourceName("나무");
+          break;
+        case "stone":
+          langMode === "en" ? setResourceName(type) : setResourceName("돌");
+          break;
+        case "gold":
+          langMode === "en" ? setResourceName(type) : setResourceName("금");
+          break;
+        default:
+          break;
+      }
+    };
+    handleLangMode();
+  }, [langMode, type]);
   return (
     <form
       onSubmit={(event) => {
@@ -50,7 +72,7 @@ const ResourceForm = ({ type }) => {
       }}
       className="ct_form resource"
     >
-      <H3>{type ? type.toUpperCase() : null}</H3>
+      <H3>{resourceName ? resourceName.toUpperCase() : null}</H3>
       <div className="ct_form__input_container resource">
         <label htmlFor={`${type}-0`}>{pack[0]}</label>
         <input id={`${type}-0`} type={"number"} onChange={onChange.zero} />
@@ -80,10 +102,17 @@ const ResourceForm = ({ type }) => {
         <input id={`${type}-6`} type={"number"} onChange={onChange.six} />
       </div>
       <div style={{ marginTop: "10px" }} className="ct_cal_result">
-        <p>
-          You have <span>{sums.reduce((prev, curr) => prev + curr, 0)}</span>{" "}
-          {type}s.
-        </p>
+        {langMode === "en" ? (
+          <p>
+            You have <span>{sums.reduce((prev, curr) => prev + curr, 0)}</span>{" "}
+            {resourceName}s.
+          </p>
+        ) : (
+          <p>
+            현재 {resourceName} 보유량은{" "}
+            <span>{sums.reduce((prev, curr) => prev + curr, 0)}</span>입니다.
+          </p>
+        )}
       </div>
     </form>
   );

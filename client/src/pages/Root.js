@@ -4,15 +4,16 @@ import { useLangModeStore } from "../store";
 import shallow from "zustand/shallow";
 
 const Root = () => {
-  const { changeLangMode } = useLangModeStore(
+  const { langMode, changeLangMode } = useLangModeStore(
     (state) => ({
+      langMode: state.langMode,
       changeLangMode: state.changeLangMode,
     }),
     shallow
   );
   return (
     <>
-      <Header />
+      <Header langMode={langMode} />
       <Outlet />
       <button onClick={changeLangMode} className="ct_langmode_btn">
         En / 한글
