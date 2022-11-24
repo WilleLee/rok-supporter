@@ -5,11 +5,13 @@ import { useState } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useMouseover from "../hooks/useMouseover";
+import useRouterLocation from "../hooks/useRouterLocation";
 
 const Header = ({ langMode, loggedIn, logout }) => {
   const navigate = useNavigate();
   const { innerWidth } = useWindowSize();
   const [toggle, setToggle] = useState(false);
+  useRouterLocation(setToggle, false);
   const onClickToggle = () => {
     setToggle((prev) => !prev);
   };
@@ -18,8 +20,6 @@ const Header = ({ langMode, loggedIn, logout }) => {
 
   const onClickLogout = () => {
     logout();
-    console.log(loggedIn);
-    console.log("logged out");
     navigate("/admin-login");
   };
 
