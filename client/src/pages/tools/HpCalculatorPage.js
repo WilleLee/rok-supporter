@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import shallow from "zustand/shallow";
-import { H2 } from "../components/styled";
-import hpCalculators from "../data/hpCalculators";
-import { useLangModeStore, useMessageStore } from "../store";
+import { H2 } from "../../components/styled";
+import hpCalculators from "../../data/hpCalculators";
+import { useLangModeStore, useMessageStore } from "../../store";
 
 let timeoutId = null;
 const enMsg = "Optimized to HA and So8 KvK seasons.";

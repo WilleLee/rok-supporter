@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { H2 } from "../components/styled";
-import troopPowerData from "../data/troopPowerData";
-import { useLangModeStore, useMessageStore } from "../store";
+import { H2 } from "../../components/styled";
+import troopPowerData from "../../data/troopPowerData";
+import { useLangModeStore, useMessageStore } from "../../store";
 import shallow from "zustand/shallow";
 
 const TroopPowerPage = () => {

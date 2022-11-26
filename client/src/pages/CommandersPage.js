@@ -1,17 +1,11 @@
+import CommandersList from "../components/CommandersList";
+
 const CommandersPage = () => {
+  const troopType = "archer";
   return (
     <section>
       <h1>hi</h1>
-      <img
-        style={{
-          width: "300px",
-          height: "300px",
-          border: "none",
-          borderRadius: "50%",
-        }}
-        src="/test_ramesses.png"
-        alt="ramesses"
-      />
+      <CommandersList troopType={troopType} />
     </section>
   );
 };

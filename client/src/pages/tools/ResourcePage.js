@@ -1,7 +1,7 @@
-import ResourceForm from "../components/ResourceForm";
-import "../styles/pages/resource.scss";
-import { H2 } from "../components/styled.js";
-import { useLangModeStore } from "../store";
+import ResourceForm from "../../components/ResourceForm";
+import "../../styles/pages/resource.scss";
+import { H2 } from "../../components/styled.js";
+import { useLangModeStore } from "../../store";
 
 const ResourcePage = () => {
   const { langMode } = useLangModeStore((state) => ({

@@ -1,5 +1,7 @@
 import create from "zustand";
 
+const $LOCAL_LOGGEDIN_KEY = "rok_logged_in";
+
 export const useMessageStore = create((set) => ({
   message: "",
   addMessage: (str) => set({ message: str }),
@@ -25,12 +27,25 @@ export const useLangModeStore = create((set) => ({
     }),
 }));
 
+const getInitialLoggedIn = () => {
+  const loggedIn = localStorage.getItem($LOCAL_LOGGEDIN_KEY) || false;
+  return loggedIn;
+};
+
 export const useLoggedIn = create((set) => ({
-  // admin-login page에서 클라이언트는 비밀번호를 입력하여 controller에서 request
-  // controller는 db model에 저장된 정보와 입력된 비밀번호가 일치하는지 확인하여 statusCode를 보냄
-  // response.status === 200 이면 login dispatch 발동하고 홈으로
-  // response.status === 400 이면 message와 함께 홈으로
-  loggedIn: false,
-  login: () => set({ loggedIn: true }),
-  logout: () => set({ loggedIn: false }),
+  loggedIn: getInitialLoggedIn(),
+  login: () =>
+    set(() => {
+      localStorage.setItem($LOCAL_LOGGEDIN_KEY, true);
+      return {
+        loggedIn: true,
+      };
+    }),
+  logout: () =>
+    set(() => {
+      localStorage.removeItem($LOCAL_LOGGEDIN_KEY);
+      return {
+        loggedIn: false,
+      };
+    }),
 }));
