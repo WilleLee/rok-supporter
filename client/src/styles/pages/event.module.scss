@@ -1,0 +1,23 @@
+@import "../varibales.scss";
+
+.logged_in_box {
+  margin: 0 20px;
+  display: flex;
+}
+
+.add_event_btn {
+  all: unset;
+  display: flex;
+  background-color: $color-captain;
+  color: $txt-color-light;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold;
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}

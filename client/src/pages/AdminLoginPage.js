@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import shallow from "zustand/shallow";
 import { H2 } from "../components/styled";
+import usePublicOnly from "../hooks/usePublicOnly";
 import fetcher from "../middlewares/fetcher";
 import { useLangModeStore, useLoggedIn, useMessageStore } from "../store";
 import "../styles/pages/adminLogin.scss";
@@ -10,9 +11,14 @@ let timeoutId = null;
 const $apiUrl = "http://localhost:8080/api/login";
 
 const AdminLoginPage = () => {
-  const { login } = useLoggedIn((state) => ({
-    login: state.login,
-  }));
+  const { login, loggedIn } = useLoggedIn(
+    (state) => ({
+      loggedIn: state.loggedIn,
+      login: state.login,
+    }),
+    shallow
+  );
+  usePublicOnly(loggedIn);
   useEffect(() => {
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
