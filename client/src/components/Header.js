@@ -43,6 +43,11 @@ const Header = ({ langMode, loggedIn, logout }) => {
               {langMode === "en" ? "About 1770" : "1770 소개"}
             </Link>
           </div>
+          <div>
+            <Link className="header__link" to={`/commanders`}>
+              {langMode === "en" ? "Commanders" : "사령관 정보"}
+            </Link>
+          </div>
           <div
             ref={mouseoverRef}
             className={`header__bs__tools_container ${state ? "hovered" : ""}`}
@@ -123,6 +128,11 @@ const Header = ({ langMode, loggedIn, logout }) => {
             <div className="header__sc__link lg">
               <Link to={`/about`}>
                 {langMode === "en" ? "About 1770" : "1770 소개"}
+              </Link>
+            </div>
+            <div className="header__sc__link lg">
+              <Link to={`/commanders`}>
+                {langMode === "en" ? "Commanders" : "사령관 정보"}
               </Link>
             </div>
             <div className="header__sc__tools">
