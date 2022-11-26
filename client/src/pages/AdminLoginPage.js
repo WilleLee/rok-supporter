@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import shallow from "zustand/shallow";
 import { H2 } from "../components/styled";
+import fetcher from "../middlewares/fetcher";
 import { useLangModeStore, useLoggedIn, useMessageStore } from "../store";
 import "../styles/pages/adminLogin.scss";
 
@@ -35,18 +36,14 @@ const AdminLoginPage = () => {
       password: { value },
     } = event.target;
     try {
-      const res = await fetch($apiUrl, {
+      const opt = {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({ password: value }),
-      }); // statusCode 200 400
-      const json = await res.json(); // success: true / false
-      console.log(json);
-      console.log(json.checkPw);
-      // json.success === true -> store loggedIn = true -> home page
-      // josn.success false -> store -> home page
+      };
+      const { json } = await fetcher($apiUrl, opt);
       switch (json.checkPw) {
         case true:
           login();
@@ -69,6 +66,7 @@ const AdminLoginPage = () => {
           break;
       }
     } catch (err) {
+      console.log(err);
       const $errMsg =
         langMode === "en"
           ? "Unexpected errors happened."
