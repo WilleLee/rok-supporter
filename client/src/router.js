@@ -10,7 +10,7 @@ import AdminLoginPage from "./pages/AdminLoginPage";
 import EventPage from "./pages/events";
 import AddEventPage from "./pages/events/AddEventPage";
 // tools/
-import CommandersPage from "./pages/CommandersPage";
+import CommandersPage from "./pages/Commanders";
 import HpCalculatorPage from "./pages/tools/HpCalculatorPage";
 import ResourcePage from "./pages/tools/ResourcePage";
 import TroopPowerPage from "./pages/tools/TroopPowerPage";
