@@ -63,6 +63,9 @@ header {
     div:nth-child(3) {
       transition-delay: 0.25s;
     }
+    div:last-child {
+      transition-delay: 0.3s;
+    }
   }
 
   .header__bs__admin_btn {
