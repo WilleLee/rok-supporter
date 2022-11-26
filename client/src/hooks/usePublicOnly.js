@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const usePublicOnly = (loggedIn) => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!loggedIn) navigate("/");
+    if (loggedIn) navigate("/");
   }, [loggedIn, navigate]);
 };
 

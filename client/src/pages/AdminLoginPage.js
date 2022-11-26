@@ -13,8 +13,8 @@ const $apiUrl = "http://localhost:8080/api/login";
 const AdminLoginPage = () => {
   const { login, loggedIn } = useLoggedIn(
     (state) => ({
-      loggedIn: state.loggedIn,
       login: state.login,
+      loggedIn: state.loggedIn,
     }),
     shallow
   );
