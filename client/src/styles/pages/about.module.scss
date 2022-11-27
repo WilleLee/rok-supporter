@@ -7,5 +7,44 @@
 
 .contents__container {
   width: 100%;
+  margin-top: 40px;
   padding: 0 30px 40px;
+  .content {
+    margin: 0 auto;
+    /*
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    */
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.content__container {
+  display: flex;
+  gap: 20px;
+  .img_container {
+    max-width: 600px;
+    img {
+      width: 100%;
+    }
+  }
+  .content__txts {
+    padding: 20px 0;
+    .content__txt {
+      margin-bottom: 15px;
+    }
+    .content__txt:first-child {
+      margin-bottom: 25px;
+    }
+    p {
+      line-height: 26px;
+    }
+  }
 }
