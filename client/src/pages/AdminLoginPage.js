@@ -4,14 +4,14 @@ import shallow from "zustand/shallow";
 import { H2 } from "../components/styled";
 import usePublicOnly from "../hooks/usePublicOnly";
 import fetcher from "../middlewares/fetcher";
-import { useLangModeStore, useLoggedIn, useMessageStore } from "../store";
+import { useLangModeStore, useLoggedInStore, useMessageStore } from "../store";
 import "../styles/pages/adminLogin.scss";
 
 let timeoutId = null;
 const $apiUrl = "http://localhost:8080/api/login";
 
 const AdminLoginPage = () => {
-  const { login, loggedIn } = useLoggedIn(
+  const { login, loggedIn } = useLoggedInStore(
     (state) => ({
       login: state.login,
       loggedIn: state.loggedIn,

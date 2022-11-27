@@ -6,6 +6,7 @@ import HomePage from "./pages";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
+import KingsMessagePage from "./pages/KingsMessagePage";
 // events/
 import EventPage from "./pages/events";
 import AddEventPage from "./pages/events/AddEventPage";
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "about", element: <AboutPage /> },
       { path: "admin-login", element: <AdminLoginPage /> },
+      { path: "kings-message", element: <KingsMessagePage /> },
       { path: "events", element: <EventPage /> },
       { path: "events/add-event", element: <AddEventPage /> },
       { path: "commanders", element: <CommandersPage /> },

@@ -1,8 +1,8 @@
 import useAdminOnly from "../../hooks/useAdminOnly";
-import { useLoggedIn } from "../../store";
+import { useLoggedInStore } from "../../store";
 
 const AddEventPage = () => {
-  const { loggedIn } = useLoggedIn((state) => ({
+  const { loggedIn } = useLoggedInStore((state) => ({
     loggedIn: state.loggedIn,
   }));
   useAdminOnly(loggedIn);

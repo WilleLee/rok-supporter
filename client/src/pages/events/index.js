@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { useLoggedIn } from "../../store";
+import { useLoggedInStore } from "../../store";
 import styles from "../../styles/pages/event.module.scss";
 
 const EventPage = () => {
   const navigate = useNavigate();
-  const { loggedIn } = useLoggedIn((state) => ({
+  const { loggedIn } = useLoggedInStore((state) => ({
     loggedIn: state.loggedIn,
   }));
   const onClickAddEvent = () => {

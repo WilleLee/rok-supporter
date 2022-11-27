@@ -4,6 +4,20 @@ const $BASE_URL = "http://localhost:8080/api";
 
 class API {
   //api for kings message
+  static async createKingsMessage(fetchOpt) {
+    const $API_PATH = "/kingsMessage";
+    const $API_URL = $BASE_URL + $API_PATH;
+    try {
+      const {
+        res: { status },
+      } = await fetcher($API_URL, fetchOpt);
+      if (status === 200) return { success: true };
+      else return { success: false };
+    } catch (err) {
+      console.log(err);
+      return { success: false };
+    }
+  }
 
   //apis for events
   static async readEvents() {
@@ -76,7 +90,7 @@ class API {
     }
   }
 
-  static async deleteEvent() {
+  static async deleteEvent(id) {
     const $API_PATH = `/events/${id}/delete`;
     const $API_URL = $BASE_URL + $API_PATH;
     const fetchOpt = {

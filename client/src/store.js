@@ -8,8 +8,8 @@ export const useMessageStore = create((set) => ({
   resetMessage: () => set({ message: "" }),
 }));
 
-export const useKingsMessage = create((set) => ({
-  kingsMessage: "야도가 미래다.",
+export const useKingsMessageStore = create((set) => ({
+  kingsMessage: "야도가 미래다. 야도가 미래다. 야도가 미래다. 가나다라마바사",
   changeKingsMessage: (str) =>
     set((state) => {
       return str.length > 0 && str.length <= 25
@@ -32,7 +32,7 @@ const getInitialLoggedIn = () => {
   return loggedIn;
 };
 
-export const useLoggedIn = create((set) => ({
+export const useLoggedInStore = create((set) => ({
   loggedIn: getInitialLoggedIn(),
   login: () =>
     set(() => {

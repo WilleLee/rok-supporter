@@ -1,26 +1,44 @@
-import shallow from "zustand/shallow";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import useScroll from "../hooks/useScroll";
-import { useKingsMessage, useLangModeStore } from "../store";
-import "../styles/pages/home.scss";
+import {
+  useKingsMessageStore,
+  useLangModeStore,
+  useLoggedInStore,
+} from "../store";
+import styles from "../styles/pages/home.module.scss";
 
 const HomePage = () => {
+  const { loggedIn } = useLoggedInStore((state) => ({
+    loggedIn: state.loggedIn,
+  }));
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
-  const { kingsMessage } = useKingsMessage(
-    (state) => ({ kingsMessage: state.kingsMessage }),
-    shallow
-  );
+  const { kingsMessage } = useKingsMessageStore((state) => ({
+    kingsMessage: state.kingsMessage,
+  }));
+  const navigate = useNavigate();
+  const onClickKingsEmoji = () => {
+    if (!loggedIn) return;
+    navigate("/kings-message");
+  };
 
   const reached = useScroll("point");
   return (
     <section>
       <div style={{ minHeight: "70vh" }}>
-        <div className="home__kings_message">
-          <p>
-            <span className="kings_message__emoji">👸🏻</span>
-            <span className="kings_message__txt">{kingsMessage}</span>
+        <div className={styles.kings_message}>
+          <p className={styles.kings_message__container}>
+            <span
+              onClick={onClickKingsEmoji}
+              className={`${styles.kings_message__emoji} ${
+                loggedIn ? styles.admin : ""
+              }`}
+            >
+              👸🏻
+            </span>
+            <span className={styles.kings_message__txt}>{kingsMessage}</span>
           </p>
         </div>
         <div
