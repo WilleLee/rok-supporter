@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
-import { useLangModeStore, useLoggedIn } from "../store";
+import { useLangModeStore, useLoggedInStore } from "../store";
 import shallow from "zustand/shallow";
 
 const Root = () => {
-  const { loggedIn, logout } = useLoggedIn(
+  const { loggedIn, logout } = useLoggedInStore(
     (state) => ({
       loggedIn: state.loggedIn,
       logout: state.logout,
