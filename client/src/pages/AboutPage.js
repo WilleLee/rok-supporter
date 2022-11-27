@@ -65,7 +65,7 @@ const AboutPage = () => {
                 </H3>
                 <p>
                   If you speak Korean and like to hunt barbarians as well as
-                  enemies during KvK seasons, contact{" "}
+                  enemies during KvK seasons,<></>contact{" "}
                   <strong>N70 Captain</strong> or <strong>N70 Orange</strong> of
                   N70s to register your immigration form.
                 </p>
