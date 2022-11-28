@@ -1,0 +1,35 @@
+@import "../varibales.scss";
+
+.troop_type_btns {
+  margin-left: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  button {
+    all: unset;
+    width: 60px;
+    background-color: $bg-color-dark;
+    color: $txt-color-dark;
+    text-align: center;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .troop_type_btns {
+    button {
+      background-color: $bg-color-light;
+      color: $txt-color-light;
+    }
+  }
+}
