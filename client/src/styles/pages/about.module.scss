@@ -19,6 +19,7 @@
     transform: translateY(30px);
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    transition-delay: 0.5s;
     &.show {
       transform: translateY(0);
       opacity: 1;
@@ -42,9 +43,22 @@
     }
     .content__txt:first-child {
       margin-bottom: 25px;
+      p {
+        font-size: 14px;
+      }
+    }
+    .content__txt:not(:first-child) p {
+      font-size: 12px;
     }
     p {
       line-height: 26px;
     }
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .content__container {
+    flex-direction: column;
+    align-items: center;
   }
 }
