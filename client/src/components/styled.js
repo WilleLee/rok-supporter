@@ -5,6 +5,7 @@ export const H1 = styled.h1`
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
+  white-space: pre-line;
 `;
 
 export const H2 = styled.h2`

@@ -12,7 +12,8 @@ const AboutPage = () => {
   }));
   const { innerWidth } = useWindowSize();
   const content1 = useScroll("content1");
-  const content5 = useScroll("content5");
+  const content2 = useScroll("content2");
+  const content3 = useScroll("content3");
   return (
     <section>
       {innerWidth >= 720 ? (
@@ -38,9 +39,11 @@ const AboutPage = () => {
             content1 ? styles.show : ""
           }`} /*introduce the kingdom as an unity of two different main alliances*/
         >
-          <H1>
+          <H1 style={{ lineHeight: "50px" }}>
             {langMode === "en"
-              ? "The Kingdom on which the Sun Never Sets"
+              ? `The Kingdom on which${
+                  innerWidth < 820 ? "\n" : " "
+                }the Sun Never Sets`
               : "🌼 해가 지지 않는 왕국 🌼"}
           </H1>
           <div className={styles.content__container}>
@@ -109,135 +112,73 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-        <div /*introduce main officers of the kingdom*/></div>
-        <div /*influential parties of the kingdom*/></div>
-        <div /*brief KvK history of the kingdom*/></div>
         <div
-          id="content5"
-          className={`${
-            content5 ? "show" : ""
-          }`} /*systems of KvK contribution and server events*/
-        ></div>
-        왕국소개 페이지 fruit fruit fruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruit fruit fruit fruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruit fruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit fruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
-        fruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit
-        fruitfruit fruitfruit fruitfruit fruitfruit fruitfruit fruit
+          id="content2"
+          className={`${styles.content} ${
+            content2 ? styles.show : ""
+          }`} /*introduce main officers of the kingdom*/
+        >
+          <H1>{langMode === "en" ? "👸🏻 Leaders 🫅🏼" : "👸🏻 왕국 리더 🫅🏼"}</H1>
+          <div className={`${styles.content__container} ${styles.officers}`}>
+            <div className={styles.img_container}>
+              <div className={styles.img__officer}>
+                <img src="/assets/about/capProfile.png" alt="captain profile" />
+                <p>
+                  <span className="captain">N70 CAPTAIN</span>
+                  {langMode === "en" ? (
+                    <span>
+                      King of the Kingdom
+                      <br />
+                      Leader of N70s
+                      <br />
+                      Main Garrison Leader of the Kingdom
+                    </span>
+                  ) : (
+                    <span>
+                      1770 서버의 국왕
+                      <br />
+                      N70s의 맹주
+                      <br />
+                      왕국 메인 수성장
+                    </span>
+                  )}
+                </p>
+              </div>
+              <div className={styles.img__officer}>
+                <img src="/assets/about/adiProfile.png" alt="adinavo profile" />
+                <p>
+                  <span className="n70d">ADINAVO</span>
+                  {langMode === "en" ? (
+                    <span>
+                      Leader of N70D
+                      <br />
+                      Main Strategist of the Kingdom
+                      <br />
+                      Archer Expert of the Whole Game
+                    </span>
+                  ) : (
+                    <span>
+                      N70D의 맹주
+                      <br />
+                      왕국 메인 전략가
+                      <br />
+                      유명 궁병 전문가
+                    </span>
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="content3"
+          className={`${styles.content} ${
+            content3 ? styles.show : ""
+          }`} /*brief KvK history of the kingdom*/
+        >
+          <H1>🏆 KvK History</H1>
+        </div>
       </div>
     </section>
   );

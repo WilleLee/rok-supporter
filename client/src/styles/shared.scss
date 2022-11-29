@@ -9,6 +9,7 @@
   border: none;
   border-radius: 3px;
   font-weight: bold;
+  font-size: 12px;
   opacity: 0.8;
   transition: opacity 0.2s ease-in-out;
 
@@ -188,4 +189,7 @@
 }
 .n70d {
   color: $color-n70d;
+}
+.captain {
+  color: $color-captain;
 }
