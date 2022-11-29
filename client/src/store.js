@@ -9,7 +9,7 @@ export const useMessageStore = create((set) => ({
 }));
 
 export const useKingsMessageStore = create((set) => ({
-  kingsMessage: "야도가 미래다. 야도가 미래다. 야도가 미래다. 가나다라마바사",
+  kingsMessage: "야도가 미래다.",
   changeKingsMessage: (str) =>
     set((state) => {
       return str.length > 0 && str.length <= 25
