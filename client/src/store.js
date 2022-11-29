@@ -1,6 +1,7 @@
 import create from "zustand";
 
 const $LOCAL_LOGGEDIN_KEY = "rok_logged_in";
+const $LOCAL_LANGMODE_KEY = "rok_lang_mode";
 
 export const useMessageStore = create((set) => ({
   message: "",
@@ -18,12 +19,23 @@ export const useKingsMessageStore = create((set) => ({
     }),
 }));
 
+const getInitialLangMode = () => {
+  const langMode = localStorage.getItem($LOCAL_LANGMODE_KEY) || "en";
+  return langMode;
+};
+
 export const useLangModeStore = create((set) => ({
-  langMode: "en",
+  langMode: getInitialLangMode(),
   changeLangMode: () =>
     set((state) => {
-      if (state.langMode === "en") return { langMode: "ko" };
-      if (state.langMode === "ko") return { langMode: "en" };
+      if (state.langMode === "en") {
+        localStorage.setItem($LOCAL_LANGMODE_KEY, "ko");
+        return { langMode: "ko" };
+      }
+      if (state.langMode === "ko") {
+        localStorage.setItem($LOCAL_LANGMODE_KEY, "en");
+        return { langMode: "en" };
+      }
     }),
 }));
 
