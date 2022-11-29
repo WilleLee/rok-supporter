@@ -56,7 +56,10 @@ const Footer = ({ langMode }) => {
               그렇지 않은 경우 서버 내 다국적 연맹인{" "}
               <strong>N70D의 ADINAVO</strong> 또는
               {innerWidth > 870 ? " " : <br />}
-              <strong>N70s의 N70 Orange</strong>에게 인게임 채팅하시기 바랍니다.
+              <strong>
+                N70s의 <span style={{ color: "orange" }}>N70 Orange</span>
+              </strong>
+              에게 인게임 채팅하시기 바랍니다.
             </span>
           </div>
         )}
