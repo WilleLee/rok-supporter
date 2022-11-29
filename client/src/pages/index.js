@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import useScroll from "../hooks/useScroll";
 import {
   useKingsMessageStore,
   useLangModeStore,
@@ -23,8 +22,6 @@ const HomePage = () => {
     if (!loggedIn) return;
     navigate("/kings-message");
   };
-
-  const reached = useScroll("point");
   return (
     <section>
       <div style={{ minHeight: "70vh" }}>
@@ -51,9 +48,6 @@ const HomePage = () => {
         >
           <img style={{ width: "100%" }} src="/main.png" alt="main" />
         </div>
-        <p id="point" className={`${reached ? "reached" : ""}`}>
-          {langMode === "en" ? "sidhishdgsi" : "함ㄴ야혼먀호"}
-        </p>
       </div>
       <Footer langMode={langMode} />
     </section>

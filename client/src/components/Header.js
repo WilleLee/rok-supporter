@@ -27,7 +27,7 @@ const Header = ({ langMode, loggedIn, logout }) => {
     <header>
       <div
         /*big screen header*/ className={`header__big_screen ${
-          innerWidth < 540 ? "hidden" : ""
+          innerWidth <= 670 ? "hidden" : ""
         }`}
       >
         <div className="header__logo_block">
@@ -106,7 +106,7 @@ const Header = ({ langMode, loggedIn, logout }) => {
       {/*header for big screen 👆🏻*/}
       {/*header for small screen 👇🏻*/}
       <div
-        className={`header__small_screen ${innerWidth <= 540 ? "" : "hidden"} ${
+        className={`header__small_screen ${innerWidth <= 670 ? "" : "hidden"} ${
           toggle ? "expanded" : ""
         }`} /*small screen header*/
       >
