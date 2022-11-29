@@ -87,13 +87,13 @@
           text-align: center;
           font-weight: bold;
           opacity: 0;
-          color: $txt-color-dark;
+          color: $txt-color-light;
           transition: opacity 0.3s ease-in-out;
         }
         &:hover,
         &:focus {
           img {
-            opacity: 0.3;
+            opacity: 0.4;
           }
           p {
             opacity: 1;
@@ -101,6 +101,12 @@
         }
       }
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .img__officer p {
+    color: $txt-color-dark;
   }
 }
 
