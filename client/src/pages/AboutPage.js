@@ -178,6 +178,26 @@ const AboutPage = () => {
           }`} /*brief KvK history of the kingdom*/
         >
           <H1>🏆 KvK History</H1>
+          <div className={`${styles.content__container} ${styles.kvk_history}`}>
+            <div className={styles.iframe_container}>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/-rcgjqsQYiY"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullscreen
+              ></iframe>
+            </div>
+            <H2 style={{ lineHeight: "40px" }}>
+              Imagine a kingdom tries everything
+              <br />
+              to make better KvK experiences,
+              <br />
+              and wins 2 vs 6 KvKs!
+            </H2>
+          </div>
         </div>
       </div>
     </section>
