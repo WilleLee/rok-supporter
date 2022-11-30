@@ -32,6 +32,7 @@
 .content__container {
   display: flex;
   gap: 20px;
+  justify-content: center;
   .img_container {
     max-width: 600px;
     img {
@@ -100,6 +101,14 @@
           }
         }
       }
+    }
+  }
+
+  &.kvk_history {
+    align-items: center;
+    justify-content: flex-start;
+    .iframe_container {
+      margin: 0;
     }
   }
 }

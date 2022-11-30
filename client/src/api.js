@@ -19,6 +19,22 @@ class API {
     }
   }
 
+  static async readKingsMessage() {
+    const $API_PATH = "/kingsMessage";
+    const $API_URL = $BASE_URL + $API_PATH;
+    try {
+      const {
+        json: { kingsMessage },
+      } = await fetcher($API_URL);
+      if (kingsMessage && typeof kingsMessage === "string")
+        return { success: true, kingsMessage };
+      else return { success: false };
+    } catch (err) {
+      console.log(err);
+      return { success: false };
+    }
+  }
+
   //apis for events
   static async readEvents() {
     const $API_PATH = "/events";
