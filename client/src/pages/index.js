@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import {
@@ -14,14 +15,24 @@ const HomePage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
-  const { kingsMessage } = useKingsMessageStore((state) => ({
-    kingsMessage: state.kingsMessage,
-  }));
+  const [kingsMessage, setKingsMessage] = useState("야도가 미래다");
   const navigate = useNavigate();
   const onClickKingsEmoji = () => {
     if (!loggedIn) return;
     navigate("/kings-message");
   };
+
+  useEffect ( () => {
+    fetch('http://localhost:8080/api/readKingsMessage')
+      .then(res => {
+        console.log('done');
+        return res.json()
+      })
+      .then(res => {
+        console.log(res[0].kingsMessage);
+        setKingsMessage(res[0].kingsMessage);
+      })
+  }, [])
   return (
     <section>
       <div style={{ minHeight: "70vh" }}>
