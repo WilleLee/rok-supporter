@@ -6,27 +6,10 @@ mysql.connect();
 module.exports = {
   needs: () => upload,
 
-  api: {
+  main : {
+
     test: (req, res) => {
       res.json({ content: "now connected with server" });
-    },
-
-    login: (req, res) => {
-      const { password } = req.body;
-      try {
-        if (!password)
-          return res
-            .status(400)
-            .json({ checkPw: false, msg: "password is required" });
-        return password === process.env.ADMIN_PASSWORD
-          ? res.status(200).json({ checkPw: true })
-          : res.status(400).json({ checkPw: false, msg: "wrong password" });
-      } catch (err) {
-        console.log(err);
-        return res
-          .status(400)
-          .json({ checkPw: false, msg: "unexpected error happened" });
-      }
     },
 
     file: (req, res) => {
@@ -61,5 +44,60 @@ module.exports = {
 
       console.log(" userid : " + req.body.information.userid);
     },
+
+  },
+
+  api: {
+
+    login: (req, res) => {
+      const { password } = req.body;
+      try {
+        if (!password)
+          return res
+            .status(400)
+            .json({ checkPw: false, msg: "password is required" });
+        return password === process.env.ADMIN_PASSWORD
+          ? res.status(200).json({ checkPw: true })
+          : res.status(400).json({ checkPw: false, msg: "wrong password" });
+      } catch (err) {
+        console.log(err);
+        return res
+          .status(400)
+          .json({ checkPw: false, msg: "unexpected error happened" });
+      }
+    },
+
+    kingsMessage : (req,res) => {
+      const { kingsMessage } = req.body;
+      mysql.query("INSERT INTO rok_supporter.KingMsg (kingsMessage) VALUE ('"+kingsMessage+"');", (err, result) => {
+        if(!err) {
+          console.log("new Message : " + kingsMessage);
+          return res
+            .status(200)
+            .json({success : true});
+        } else {
+          console.log(err);
+          return res
+            .status(400)
+            .json({success : false});
+        }
+      })
+    },
+
+    readKingsMessage : (req,res) => {
+      mysql.query("SELECT kingsMessage FROM rok_supporter.KingMsg ORDER BY id DESC LIMIT 1;", (err, result) => {
+        if(!err) {
+          console.log(result[0].kingsMessage);
+          return res
+            .status(200)
+            .json(result);
+        } else {
+          console.log(err);
+          return res
+            .status(400)
+            .json({message : false});
+        }
+      })
+    }
   },
 };
