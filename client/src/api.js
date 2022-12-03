@@ -20,7 +20,7 @@ class API {
   }
 
   static async readKingsMessage() {
-    const $API_PATH = "/kingsMessage";
+    const $API_PATH = "/readKingsMessage";
     const $API_URL = $BASE_URL + $API_PATH;
     try {
       const {

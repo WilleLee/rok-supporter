@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import API from "../api";
 import Footer from "../components/Footer";
-import {
-  useKingsMessageStore,
-  useLangModeStore,
-  useLoggedInStore,
-} from "../store";
+import { useLangModeStore, useLoggedInStore } from "../store";
 import styles from "../styles/pages/home.module.scss";
 
 const HomePage = () => {
@@ -15,40 +12,44 @@ const HomePage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
-  const [kingsMessage, setKingsMessage] = useState("야도가 미래다");
+  const [kingsMessage, setKingsMessage] = useState("");
   const navigate = useNavigate();
   const onClickKingsEmoji = () => {
     if (!loggedIn) return;
     navigate("/kings-message");
   };
 
-  useEffect ( () => {
-    fetch('http://localhost:8080/api/readKingsMessage')
-      .then(res => {
-        console.log('done');
-        return res.json()
-      })
-      .then(res => {
-        console.log(res[0].kingsMessage);
-        setKingsMessage(res[0].kingsMessage);
-      })
-  }, [])
+  useEffect(() => {
+    const getKingsMessage = async () => {
+      const result = await API.readKingsMessage();
+      const { success, kingsMessage } = result;
+      if (!success) return;
+      if (success && kingsMessage && typeof kingsMessage === "string") {
+        return setKingsMessage(kingsMessage);
+      }
+      return;
+    };
+    getKingsMessage();
+  }, []);
   return (
     <section>
       <div style={{ minHeight: "70vh" }}>
-        <div className={styles.kings_message}>
-          <p className={styles.kings_message__container}>
-            <span
-              onClick={onClickKingsEmoji}
-              className={`${styles.kings_message__emoji} ${
-                loggedIn ? styles.admin : ""
-              }`}
-            >
-              👸🏻
-            </span>
-            <span className={styles.kings_message__txt}>{kingsMessage}</span>
-          </p>
-        </div>
+        {kingsMessage ? (
+          <div className={styles.kings_message}>
+            <p className={styles.kings_message__container}>
+              <span
+                onClick={onClickKingsEmoji}
+                className={`${styles.kings_message__emoji} ${
+                  loggedIn ? styles.admin : ""
+                }`}
+              >
+                👸🏻
+              </span>
+
+              <span className={styles.kings_message__txt}>{kingsMessage}</span>
+            </p>
+          </div>
+        ) : null}
         <div
           style={{
             marginTop: "15px",
