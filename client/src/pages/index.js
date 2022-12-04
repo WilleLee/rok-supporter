@@ -50,6 +50,7 @@ const HomePage = () => {
             </p>
           </div>
         ) : null}
+        {/*
         <div
           style={{
             marginTop: "15px",
@@ -60,6 +61,7 @@ const HomePage = () => {
         >
           <img style={{ width: "100%" }} src="/main.png" alt="main" />
         </div>
+        */}
       </div>
       <Footer langMode={langMode} />
     </section>

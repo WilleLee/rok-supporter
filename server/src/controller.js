@@ -98,11 +98,11 @@ module.exports = {
       );
     },
 
-    readAllCommanders: (req,res) => {
+    readAllCommanders: (req, res) => {
       mysql.query(
         "SELECT * FROM rok_supporter.commanders ORDER BY id;",
         (err, result) => {
-          if(!err) {
+          if (!err) {
             console.log(result);
             return res.status(200).json(result);
           } else {
@@ -110,21 +110,21 @@ module.exports = {
             return res.sendStatus(400);
           }
         }
-      )
+      );
     },
 
-    readCommander : (req,res) => {
+    readCommander: (req, res) => {
       const { id } = req.body;
-      try{
+      try {
         mysql.query(
-          "SELECT * FROM rok_supporter.commanders WHERE id = '"+id+"'",
+          "SELECT * FROM rok_supporter.commanders WHERE id = '" + id + "'",
           (err, result) => {
             return res.status(200).json(result);
           }
-        )
+        );
       } catch {
         console.log(err);
-        return res.status(400);
+        return res.sendStatus(400);
       }
     },
   },
