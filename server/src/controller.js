@@ -97,5 +97,35 @@ module.exports = {
         }
       );
     },
+
+    readAllCommanders: (req,res) => {
+      mysql.query(
+        "SELECT * FROM rok_supporter.commanders ORDER BY id;",
+        (err, result) => {
+          if(!err) {
+            console.log(result);
+            return res.status(200).json(result);
+          } else {
+            console.log(err);
+            return res.sendStatus(400);
+          }
+        }
+      )
+    },
+
+    readCommander : (req,res) => {
+      const { id } = req.body;
+      try{
+        mysql.query(
+          "SELECT * FROM rok_supporter.commanders WHERE id = '"+id+"'",
+          (err, result) => {
+            return res.status(200).json(result);
+          }
+        )
+      } catch {
+        console.log(err);
+        return res.status(400);
+      }
+    },
   },
 };
