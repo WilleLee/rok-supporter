@@ -106,9 +106,10 @@
 
   &.kvk_history {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     .iframe_container {
       margin: 0;
+      padding: 0;
     }
   }
 }
@@ -133,6 +134,12 @@
     .img__officer {
       width: 100%;
       max-width: 550px;
+    }
+  }
+  .content:last-child .content__container {
+    flex-direction: column;
+    .iframe_container {
+      width: 100%;
     }
   }
 }
