@@ -3,6 +3,20 @@ import fetcher from "./middlewares/fetcher";
 const $BASE_URL = "http://localhost:8080/api";
 
 class API {
+  //api for commanders
+  static async readAllCommanders() {
+    const $API_PATH = "/readAllCommanders";
+    const $API_URL = $BASE_URL + $API_PATH;
+    try {
+      const { res, json } = await fetcher($API_URL);
+      if (res.status !== 200) return { success: false };
+      return { json, success: true };
+    } catch (err) {
+      console.log(err);
+      return { success: false };
+    }
+  }
+
   //api for kings message
   static async createKingsMessage(fetchOpt) {
     const $API_PATH = "/kingsMessage";

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import API from "../../api";
 import CommandersList from "../../components/CommandersList";
 import styles from "../../styles/pages/commanders.module.scss";
 
@@ -7,8 +8,16 @@ const troopTypes = {
   $INF: "infantry",
   $CAV: "cavalry",
 };
-
 const CommandersPage = () => {
+  const [commanders, setCommanders] = useState([]);
+  useEffect(() => {
+    const getAllCommanders = async () => {
+      const { json, success } = await API.readAllCommanders();
+      if (!success) return;
+      setCommanders(json);
+    };
+    getAllCommanders();
+  }, []);
   const [troopType, setTroopType] = useState(troopTypes.$ARC);
   return (
     <section>
@@ -32,6 +41,14 @@ const CommandersPage = () => {
           cavalry
         </button>
       </div>
+      {commanders.length
+        ? commanders.map((a, i) => (
+            <div key={i}>
+              <img src={`${a.cmdSrc}`} alt="commander" />
+              <h1>{a.cmdName}</h1>
+            </div>
+          ))
+        : null}
       <h1>hi</h1>
       <CommandersList troopType={troopType} />
     </section>
