@@ -61,3 +61,11 @@ export const useLoggedInStore = create((set) => ({
       };
     }),
 }));
+
+export const useLoadedCommandersStore = create((set) => ({
+  loadedCommanders: [],
+  loadCommanders: (arr) =>
+    set(() => ({
+      loadedCommanders: [...arr],
+    })),
+}));

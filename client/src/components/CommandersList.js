@@ -15,7 +15,7 @@ const CommandersList = ({ commander }) => {
         <Link to={`/commanders/${cmd.id}`}>
           <div className={styles.img_container}>
             <img src={`${cmd.cmdSrc}`} alt={`${cmd.cmdName}`} />
-            <p>{cmd.cmdName}</p>
+            <p>{String(cmd.cmdName).split("_")[0]}</p>
           </div>
         </Link>
       ) : null}

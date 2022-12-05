@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import shallow from "zustand/shallow";
 import API from "../../api";
 import CommandersList from "../../components/CommandersList";
 import { H2 } from "../../components/styled";
+import { useLoadedCommandersStore } from "../../store";
 import styles from "../../styles/pages/commanders.module.scss";
 
 const troopTypes = {
@@ -10,17 +12,30 @@ const troopTypes = {
   $CAV: "cavalry",
 };
 const CommandersPage = () => {
+  const { loadedCommanders, loadCommanders } = useLoadedCommandersStore(
+    (state) => ({
+      loadedCommanders: state.loadedCommanders,
+      loadCommanders: state.loadCommanders,
+    }),
+    shallow
+  );
   const [commanders, setCommanders] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getAllCommanders = async () => {
+      if (loadedCommanders.length) {
+        setCommanders(loadedCommanders);
+        setLoading(false);
+        return;
+      }
       const { json, success } = await API.readAllCommanders();
       if (!success) return;
       setCommanders(json);
+      loadCommanders(json);
       setLoading(false);
     };
     getAllCommanders();
-  }, []);
+  }, [loadedCommanders, loadCommanders]);
   const [troopType, setTroopType] = useState(troopTypes.$ARC);
   return (
     <section>
