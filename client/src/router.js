@@ -17,6 +17,7 @@ import ResourcePage from "./pages/tools/ResourcePage";
 import TroopPowerPage from "./pages/tools/TroopPowerPage";
 //
 import TestPage from "./test/TestPage";
+import CommanderPage from "./pages/Commanders/CommanderPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "events", element: <EventPage /> },
       { path: "events/add-event", element: <AddEventPage /> },
       { path: "commanders", element: <CommandersPage /> },
+      { path: "commanders/:id", element: <CommanderPage /> },
       { path: "tools/troop-power", element: <TroopPowerPage /> },
       { path: "tools/resource", element: <ResourcePage /> },
       { path: "tools/hp-calculator", element: <HpCalculatorPage /> },
