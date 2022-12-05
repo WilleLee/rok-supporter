@@ -190,13 +190,21 @@ const AboutPage = () => {
                 allowFullScreen
               ></iframe>
             </div>
-            <H2 style={{ lineHeight: "40px" }}>
-              Imagine a kingdom tries everything
-              <br />
-              to make better KvK experiences,
-              <br />
-              and wins 2 vs 6 KvKs!
-            </H2>
+            {langMode === "en" ? (
+              <H2 style={{ lineHeight: "40px" }}>
+                Imagine a kingdom tries everything
+                <br />
+                to make better KvK experiences,
+                <br />
+                and wins 2 vs 6 KvKs!
+              </H2>
+            ) : (
+              <H2 style={{ lineHeight: "40px" }}>
+                2대6 상황에서도 물러서지 않는 1770,
+                <br />
+                킹받쥬?
+              </H2>
+            )}
           </div>
         </div>
       </div>

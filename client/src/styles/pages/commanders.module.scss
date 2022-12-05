@@ -25,6 +25,16 @@
   }
 }
 
+.commanders_list__container {
+  margin-top: 40px;
+  &.loaded {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 15px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .troop_type_btns {
     button {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../../api";
 import CommandersList from "../../components/CommandersList";
+import { H2 } from "../../components/styled";
 import styles from "../../styles/pages/commanders.module.scss";
 
 const troopTypes = {
@@ -10,11 +11,13 @@ const troopTypes = {
 };
 const CommandersPage = () => {
   const [commanders, setCommanders] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getAllCommanders = async () => {
       const { json, success } = await API.readAllCommanders();
       if (!success) return;
       setCommanders(json);
+      setLoading(false);
     };
     getAllCommanders();
   }, []);
@@ -41,15 +44,21 @@ const CommandersPage = () => {
           cavalry
         </button>
       </div>
-      {commanders.length
-        ? commanders.map((a, i) => (
-            <div key={i}>
-              <img src={`${a.cmdSrc}`} alt="commander" />
-              <h1>{a.cmdName}</h1>
-            </div>
-          ))
-        : null}
-      <h1>hi</h1>
+      <div
+        className={`${styles.commanders_list__container} ${
+          loading ? "" : styles.loaded
+        }`}
+      >
+        {commanders.length ? (
+          commanders
+            .filter((a) => a.troopType === troopType)
+            .map((commander, i) => (
+              <CommandersList commander={commander} key={i} />
+            ))
+        ) : (
+          <H2>Loading...</H2>
+        )}
+      </div>
       <CommandersList troopType={troopType} />
     </section>
   );

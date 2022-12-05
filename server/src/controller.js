@@ -88,7 +88,6 @@ module.exports = {
         (err, result) => {
           if (!err) {
             const kingsMessage = result[0].kingsMessage;
-            console.log(kingsMessage);
             return res.status(200).json({ kingsMessage });
           } else {
             console.log(err);
@@ -103,7 +102,6 @@ module.exports = {
         "SELECT * FROM rok_supporter.commanders ORDER BY id;",
         (err, result) => {
           if (!err) {
-            console.log(result);
             return res.status(200).json(result);
           } else {
             console.log(err);
