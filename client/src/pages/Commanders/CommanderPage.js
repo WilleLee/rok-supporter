@@ -23,7 +23,11 @@ const CommanderPage = () => {
   }, [id]);
   return (
     <section>
-      {!commander ? <H1>Loading...</H1> : <H1>{commander.cmdName}</H1>}
+      {!commander ? (
+        <H1>Loading...</H1>
+      ) : (
+        <H1>{String(commander.cmdName).split("_").join(" ").toUpperCase()}</H1>
+      )}
     </section>
   );
 };
