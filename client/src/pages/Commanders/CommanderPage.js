@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../api";
+import CommanderDetail from "../../components/CommanderDetail";
 import { H1 } from "../../components/styled";
 
 const CommanderPage = () => {
@@ -26,7 +27,7 @@ const CommanderPage = () => {
       {!commander ? (
         <H1>Loading...</H1>
       ) : (
-        <H1>{String(commander.cmdName).split("_").join(" ").toUpperCase()}</H1>
+        <CommanderDetail commander={commander} />
       )}
     </section>
   );
