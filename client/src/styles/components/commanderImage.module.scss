@@ -7,6 +7,7 @@
   border: none;
   border-radius: 50%;
   overflow: hidden;
+  isolation: isolate;
   background-color: $bg-color-dark;
   &.link {
     cursor: pointer;

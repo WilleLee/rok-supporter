@@ -6,13 +6,14 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useLangModeStore } from "../store";
 import styles from "../styles/pages/about.module.scss";
 
-const $WELCOME_MESSAGE = "All Hail Captain and Kingdom 1770";
-
 const AboutPage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
   const { innerWidth } = useWindowSize();
+  const $WELCOME_MESSAGE = `All Hail Captain${
+    innerWidth > 420 ? " and Kingdom 1770" : ""
+  }`;
   const content1 = useScroll("content1");
   const content2 = useScroll("content2");
   const content3 = useScroll("content3");
@@ -41,13 +42,25 @@ const AboutPage = () => {
             content1 ? styles.show : ""
           }`} /*introduce the kingdom as an unity of two different main alliances*/
         >
-          <H1 style={{ lineHeight: "50px" }}>
-            {langMode === "en"
-              ? `The Kingdom on which${
-                  innerWidth < 820 ? "\n" : " "
-                }the Sun Never Sets`
-              : "🌼 해가 지지 않는 왕국 🌼"}
-          </H1>
+          {innerWidth > 840 ? (
+            <H1 style={{ lineHeight: "50px" }}>
+              {langMode === "en"
+                ? `The Kingdom on which the 🌞 Never Sets`
+                : `🌼 해가 지지 않는 왕국 🌼`}
+            </H1>
+          ) : (
+            <H2 style={{ lineHeight: "50px" }}>
+              {langMode === "en" ? (
+                <span>
+                  The Kingdom
+                  <br />
+                  on which the 🌞 Never Sets
+                </span>
+              ) : (
+                <span>🌼 해가 지지 않는 왕국 🌼</span>
+              )}
+            </H2>
+          )}
           <div className={styles.content__container}>
             <div className={styles.img_container}>
               <img src="/assets/about/alliances.png" alt="kingdom alliances" />
