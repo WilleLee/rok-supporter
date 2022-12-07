@@ -25,6 +25,10 @@
     &.show {
       transform: translateY(0);
       opacity: 1;
+      .content__txts {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
 }
@@ -41,6 +45,10 @@
   }
   .content__txts {
     padding: 20px 0;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 1s;
     .content__txt {
       margin-bottom: 15px;
     }

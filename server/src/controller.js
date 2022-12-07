@@ -117,6 +117,7 @@ module.exports = {
         mysql.query(
           "SELECT * FROM rok_supporter.commanders WHERE id = '" + id + "'",
           (err, result) => {
+            if (!result.length) return res.sendStatus(400);
             return res.status(200).json(result);
           }
         );

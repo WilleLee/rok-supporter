@@ -194,15 +194,15 @@ const AboutPage = () => {
             </div>
             {langMode === "en" ? (
               <H2 style={{ lineHeight: "40px" }}>
-                Imagine a kingdom tries everything
+                Imagine a kingdom tries everything to make
                 <br />
-                to make better KvK experiences!
+                better KvK experiences!
                 <br />
                 Check out the{" "}
                 <span style={{ color: "red" }}>
                   <FontAwesomeIcon icon={faYoutube} />
                 </span>
-                YouTube series.
+                YouTube contents.
               </H2>
             ) : (
               <H2 style={{ lineHeight: "40px" }}>

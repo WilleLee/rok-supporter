@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import API from "../../api";
 import CommanderDetail from "../../components/CommanderDetail";
 import { H1 } from "../../components/styled";
@@ -7,6 +7,7 @@ import { H1 } from "../../components/styled";
 const CommanderPage = () => {
   const { id } = useParams();
   const [commander, setCommander] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchOpt = {
       method: "POST",
@@ -17,11 +18,14 @@ const CommanderPage = () => {
     };
     const readCommander = async () => {
       const { json, success } = await API.readCommander(fetchOpt);
-      if (!success) return;
+      if (!success) {
+        navigate("/commanders");
+        return;
+      }
       setCommander(...json);
     };
     readCommander();
-  }, [id]);
+  }, [id, navigate]);
   return (
     <section>
       {!commander ? (
