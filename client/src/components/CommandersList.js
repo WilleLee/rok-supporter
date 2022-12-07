@@ -6,6 +6,7 @@ import CommanderImage from "./CommanderImage";
 const CommandersList = ({ commander }) => {
   // api를 통해 server로부터 troopType에 해당하는 list를 불러옴
   // 각 commander data는 img file의 path와 고유 id를 가짐
+  const $LINK = "link";
   const [cmd, setCmd] = useState();
   useEffect(() => {
     if (commander) setCmd(commander);
@@ -14,10 +15,13 @@ const CommandersList = ({ commander }) => {
     <div className={styles.container}>
       {cmd ? (
         <Link to={`/commanders/${cmd.id}`}>
-          <CommanderImage cmdName={cmd.cmdName} cmdSrc={cmd.cmdSrc} />
+          <CommanderImage
+            cmdName={cmd.cmdName}
+            cmdSrc={cmd.cmdSrc}
+            link={$LINK}
+          />
         </Link>
       ) : null}
-      {/* ... */}
     </div>
   );
 };

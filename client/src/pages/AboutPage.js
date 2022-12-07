@@ -1,3 +1,5 @@
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { H1, H2, H3 } from "../components/styled";
 import useScroll from "../hooks/useScroll";
 import useWindowSize from "../hooks/useWindowSize";
@@ -194,15 +196,22 @@ const AboutPage = () => {
               <H2 style={{ lineHeight: "40px" }}>
                 Imagine a kingdom tries everything
                 <br />
-                to make better KvK experiences,
+                to make better KvK experiences!
                 <br />
-                and wins 2 vs 6 KvKs!
+                Check out the{" "}
+                <span style={{ color: "red" }}>
+                  <FontAwesomeIcon icon={faYoutube} />
+                </span>
+                YouTube series.
               </H2>
             ) : (
               <H2 style={{ lineHeight: "40px" }}>
                 2대6 상황에서도 물러서지 않는 1770,
                 <br />
-                킹받쥬?
+                <span style={{ color: "red" }}>
+                  <FontAwesomeIcon icon={faYoutube} />
+                </span>
+                YouTube 시리즈를 통해 확인하세요.
               </H2>
             )}
           </div>
