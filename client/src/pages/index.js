@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api";
 import Footer from "../components/Footer";
+import HomeGallery from "../components/HomeGallery";
 import { useLangModeStore, useLoggedInStore } from "../store";
 import styles from "../styles/pages/home.module.scss";
 
@@ -50,18 +51,7 @@ const HomePage = () => {
             </p>
           </div>
         ) : null}
-        {/*
-        <div
-          style={{
-            marginTop: "15px",
-            marginBottom: "30px",
-            width: "100%",
-            padding: "0 20px",
-          }}
-        >
-          <img style={{ width: "100%" }} src="/main.png" alt="main" />
-        </div>
-        */}
+        <HomeGallery />
       </div>
       <Footer langMode={langMode} />
     </section>
