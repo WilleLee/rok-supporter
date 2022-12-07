@@ -20,9 +20,9 @@ const CommanderPage = () => {
       const { json, success } = await API.readCommander(fetchOpt);
       if (!success) {
         navigate("/commanders");
-        return;
+      } else {
+        setCommander(...json);
       }
-      setCommander(...json);
     };
     readCommander();
   }, [id, navigate]);
