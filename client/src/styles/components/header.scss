@@ -93,6 +93,8 @@ header {
 
 .header__bs__tools_container {
   position: relative;
+  z-index: 3;
+  isolation: isolate;
   ul {
     display: none;
   }
@@ -106,9 +108,8 @@ header {
       top: 100%;
       left: -50px;
       animation: hoveredList 0.1s ease-in-out forwards;
-      z-index: 3;
+
       li {
-        z-index: 4;
         padding: 20px 10px 0;
         background-color: white;
         span {
