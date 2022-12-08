@@ -26,7 +26,9 @@ const CommanderDetail = ({ commander }) => {
           </Link>
         </div>
         <div>
-          {innerWidth > 680 ? (
+          {!commander.cmdName ? (
+            <H1>Loading...</H1>
+          ) : innerWidth > 680 ? (
             <H1>
               {String(commander.cmdName).split("_").join(" ").toUpperCase()}
             </H1>
