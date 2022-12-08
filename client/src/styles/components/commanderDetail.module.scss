@@ -1,0 +1,48 @@
+@import "../varibales.scss";
+
+.title_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  align-items: center;
+  margin-bottom: 30px;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div:first-child div {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: $bg-color-dark;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+    p {
+      color: $txt-color-dark;
+    }
+  }
+  div:nth-child(2) {
+    h1,
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title_container div:first-child div {
+    background-color: $bg-color-light;
+    p {
+      color: $txt-color-light;
+    }
+  }
+}
