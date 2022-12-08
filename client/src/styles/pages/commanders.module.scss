@@ -1,17 +1,19 @@
 @import "../varibales.scss";
 
 .troop_type_btns {
-  margin-left: 30px;
+  margin: 0 auto 40px;
   display: flex;
   gap: 10px;
+  justify-content: center;
   align-items: center;
   button {
     all: unset;
-    width: 60px;
+    width: 110px;
     background-color: $bg-color-dark;
     color: $txt-color-dark;
     text-align: center;
-    padding: 13px 10px;
+    font-size: 16px;
+    padding: 13px 0;
     border: none;
     border-radius: 6px;
     opacity: 0.8;
@@ -25,20 +27,27 @@
   }
 }
 
-.commanders_list__container {
-  margin-top: 40px;
-  &.loaded {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 25px;
-  }
+.commanders_list__container.loaded {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 25px;
 }
 
 @media screen and (max-width: 540px) {
   .commanders_list__container.loaded {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 35px;
+  }
+  .troop_type_btns button {
+    width: 100px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .troop_type_btns button {
+    width: 75px;
+    font-size: 10px;
   }
 }
 

@@ -10,6 +10,7 @@ const troopTypes = {
   $ARC: "archer",
   $INF: "infantry",
   $CAV: "cavalry",
+  $LEA: "leadership",
 };
 const CommandersPage = () => {
   const { loadedCommanders, loadCommanders } = useLoadedCommandersStore(
@@ -44,19 +45,25 @@ const CommandersPage = () => {
           className={`${troopType === troopTypes.$ARC ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$ARC)}
         >
-          archer
+          {troopTypes.$ARC.toUpperCase()}
         </button>
         <button
           className={`${troopType === troopTypes.$INF ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$INF)}
         >
-          infantry
+          {troopTypes.$INF.toUpperCase()}
         </button>
         <button
           className={`${troopType === troopTypes.$CAV ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$CAV)}
         >
-          cavalry
+          {troopTypes.$CAV.toUpperCase()}
+        </button>
+        <button
+          className={`${troopType === troopTypes.$LEA ? styles.active : ""}`}
+          onClick={() => setTroopType(troopTypes.$LEA)}
+        >
+          {troopTypes.$LEA.toUpperCase()}
         </button>
       </div>
       <div
