@@ -3,16 +3,18 @@ import shallow from "zustand/shallow";
 import API from "../../api";
 import CommandersList from "../../components/CommandersList";
 import { H2 } from "../../components/styled";
-import { useLoadedCommandersStore } from "../../store";
+import troopTypes from "../../data/troopTypes";
+import { useLoadedCommandersStore, useTroopTypeStore } from "../../store";
 import styles from "../../styles/pages/commanders.module.scss";
 
-const troopTypes = {
-  $ARC: "archer",
-  $INF: "infantry",
-  $CAV: "cavalry",
-  $LEA: "leadership",
-};
 const CommandersPage = () => {
+  const { troopType, setTroopType } = useTroopTypeStore(
+    (state) => ({
+      troopType: state.troopType,
+      setTroopType: state.setTroopType,
+    }),
+    shallow
+  );
   const { loadedCommanders, loadCommanders } = useLoadedCommandersStore(
     (state) => ({
       loadedCommanders: state.loadedCommanders,
@@ -37,7 +39,6 @@ const CommandersPage = () => {
     };
     getAllCommanders();
   }, [loadedCommanders, loadCommanders]);
-  const [troopType, setTroopType] = useState(troopTypes.$ARC);
   return (
     <section>
       <div className={styles.troop_type_btns}>

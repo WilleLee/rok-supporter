@@ -1,7 +1,9 @@
 import create from "zustand";
+import troopTypes from "./data/troopTypes";
 
 const $LOCAL_LOGGEDIN_KEY = "rok_logged_in";
 const $LOCAL_LANGMODE_KEY = "rok_lang_mode";
+const $LOCAL_TROOPTYPE_KEY = "rok_troop_type";
 
 export const useMessageStore = create((set) => ({
   message: "",
@@ -68,4 +70,30 @@ export const useLoadedCommandersStore = create((set) => ({
     set(() => ({
       loadedCommanders: [...arr],
     })),
+}));
+
+const getInitialTroopType = () => {
+  const troopType =
+    localStorage.getItem($LOCAL_TROOPTYPE_KEY) || troopTypes.$ARC;
+  return troopType;
+};
+
+export const useTroopTypeStore = create((set) => ({
+  troopType: getInitialTroopType(),
+  setTroopType: (str) =>
+    set((state) => {
+      if (
+        ![
+          troopTypes.$ARC,
+          troopTypes.$CAV,
+          troopTypes.$INF,
+          troopTypes.$LEA,
+        ].includes(str)
+      ) {
+        return { troopType: state.troopType };
+      } else {
+        localStorage.setItem($LOCAL_TROOPTYPE_KEY, str);
+        return { troopType: str };
+      }
+    }),
 }));
