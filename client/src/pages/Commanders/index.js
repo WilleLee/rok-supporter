@@ -4,10 +4,17 @@ import API from "../../api";
 import CommandersList from "../../components/CommandersList";
 import { H2 } from "../../components/styled";
 import troopTypes from "../../data/troopTypes";
-import { useLoadedCommandersStore, useTroopTypeStore } from "../../store";
+import {
+  useLangModeStore,
+  useLoadedCommandersStore,
+  useTroopTypeStore,
+} from "../../store";
 import styles from "../../styles/pages/commanders.module.scss";
 
 const CommandersPage = () => {
+  const { langMode } = useLangModeStore((state) => ({
+    langMode: state.langMode,
+  }));
   const { troopType, setTroopType } = useTroopTypeStore(
     (state) => ({
       troopType: state.troopType,
@@ -46,25 +53,25 @@ const CommandersPage = () => {
           className={`${troopType === troopTypes.$ARC ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$ARC)}
         >
-          {troopTypes.$ARC.toUpperCase()}
+          {langMode === "en" ? "ARCHER" : "궁병"}
         </button>
         <button
           className={`${troopType === troopTypes.$INF ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$INF)}
         >
-          {troopTypes.$INF.toUpperCase()}
+          {langMode === "en" ? "INFANTRY" : "보병"}
         </button>
         <button
           className={`${troopType === troopTypes.$CAV ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$CAV)}
         >
-          {troopTypes.$CAV.toUpperCase()}
+          {langMode === "en" ? "CAVALRY" : "기마병"}
         </button>
         <button
           className={`${troopType === troopTypes.$LEA ? styles.active : ""}`}
           onClick={() => setTroopType(troopTypes.$LEA)}
         >
-          {troopTypes.$LEA.toUpperCase()}
+          {langMode === "en" ? "LEADERSHIP" : "리더십"}
         </button>
       </div>
       <div
