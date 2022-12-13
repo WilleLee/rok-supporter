@@ -1,8 +1,7 @@
 import fetcher from "./middlewares/fetcher";
 
 const $BASE_URL =
-  JSON.stringify(process.env.REACT_APP_BASE_API_URL) ||
-  "http://localhost:8080/api";
+  process.env.REACT_APP_BASE_API_URL || "http://localhost:8080/api";
 
 class API {
   //api for commanders
@@ -20,6 +19,7 @@ class API {
   }
 
   static async readAllCommanders() {
+    console.log(process.env.REACT_APP_BASE_API_URL);
     const $API_PATH = "/readAllCommanders";
     const $API_URL = $BASE_URL + $API_PATH;
     try {
