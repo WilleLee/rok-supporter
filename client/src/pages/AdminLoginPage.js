@@ -9,7 +9,7 @@ import "../styles/pages/adminLogin.scss";
 
 let timeoutId = null;
 const $apiUrl = process.env.REACT_APP_BASE_API_URL
-  ? process.env.REACT_APP_BASE_API_URL + "/login"
+  ? JSON.stringify(process.env.REACT_APP_BASE_API_URL) + "/login"
   : "http://localhost:8080/api/login";
 
 const AdminLoginPage = () => {
