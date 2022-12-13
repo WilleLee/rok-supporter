@@ -19,7 +19,6 @@ class API {
   }
 
   static async readAllCommanders() {
-    console.log(process.env.REACT_APP_BASE_API_URL);
     const $API_PATH = "/readAllCommanders";
     const $API_URL = $BASE_URL + $API_PATH;
     try {
