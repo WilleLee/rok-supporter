@@ -1,6 +1,7 @@
 import fetcher from "./middlewares/fetcher";
 
-const $BASE_URL = process.env.BASE_API_URL || "http://localhost:8080/api";
+const $BASE_URL =
+  process.env.REACT_APP_BASE_API_URL || "http://localhost:8080/api";
 
 class API {
   //api for commanders
