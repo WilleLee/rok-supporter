@@ -8,7 +8,9 @@ import { useLangModeStore, useLoggedInStore, useMessageStore } from "../store";
 import "../styles/pages/adminLogin.scss";
 
 let timeoutId = null;
-const $apiUrl = "http://localhost:8080/api/login";
+const $apiUrl = process.env.REACT_APP_BASE_API_URL
+  ? process.env.REACT_APP_BASE_API_URL + "/login"
+  : "http://localhost:8080/api/login";
 
 const AdminLoginPage = () => {
   const { login, loggedIn } = useLoggedInStore(
