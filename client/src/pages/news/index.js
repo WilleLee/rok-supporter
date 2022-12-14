@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { H1, H2, H3 } from "../../components/styled";
 import useWindowSize from "../../hooks/useWindowSize";
 import { useLangModeStore, useLoggedInStore } from "../../store";
-import styles from "../../styles/pages/event.module.scss";
+import styles from "../../styles/pages/news.module.scss";
 
-const EventPage = () => {
+const NewsPage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
@@ -18,7 +18,7 @@ const EventPage = () => {
     loggedIn: state.loggedIn,
   }));
   const onClickAddEvent = () => {
-    if (loggedIn) navigate("/events/add-event");
+    if (loggedIn) navigate("/news/add-news");
   };
   return (
     <section>
@@ -43,4 +43,4 @@ const EventPage = () => {
   );
 };
 
-export default EventPage;
+export default NewsPage;

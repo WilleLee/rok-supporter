@@ -7,9 +7,9 @@ import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import KingsMessagePage from "./pages/KingsMessagePage";
-// events/
-import EventPage from "./pages/events";
-import AddEventPage from "./pages/events/AddEventPage";
+// news/
+import NewsPage from "./pages/news";
+import AddNewsPage from "./pages/news/AddNewsPage";
 // tools/
 import HpCalculatorPage from "./pages/tools/HpCalculatorPage";
 import ResourcePage from "./pages/tools/ResourcePage";
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutPage /> },
       { path: "admin-login", element: <AdminLoginPage /> },
       { path: "kings-message", element: <KingsMessagePage /> },
-      { path: "events", element: <EventPage /> },
-      { path: "events/add-event", element: <AddEventPage /> },
+      { path: "news", element: <NewsPage /> },
+      { path: "news/add-news", element: <AddNewsPage /> },
       { path: "commanders", element: <CommandersPage /> },
       { path: "commanders/:id", element: <CommanderPage /> },
       { path: "tools/troop-power", element: <TroopPowerPage /> },
