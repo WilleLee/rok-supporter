@@ -84,8 +84,8 @@ const Header = ({ langMode, loggedIn, logout }) => {
             </ul>
           </div>
           <div>
-            <Link className="header__link" to={`/events`}>
-              {langMode === "en" ? "Events" : "이벤트"}
+            <Link className="header__link" to={`/news`}>
+              {langMode === "en" ? "News" : "뉴스"}
             </Link>
           </div>
         </nav>
@@ -168,9 +168,7 @@ const Header = ({ langMode, loggedIn, logout }) => {
               </ul>
             </div>
             <div className="header__sc__link lg">
-              <Link to={`/events`}>
-                {langMode === "en" ? "Events" : "이벤트"}
-              </Link>
+              <Link to={`/news`}>{langMode === "en" ? "News" : "뉴스"}</Link>
             </div>
           </nav>
         </div>

@@ -2,7 +2,7 @@ import { H1 } from "../../components/styled";
 import useAdminOnly from "../../hooks/useAdminOnly";
 import { useLangModeStore, useLoggedInStore } from "../../store";
 
-const AddEventPage = () => {
+const AddNewsPage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
@@ -35,4 +35,4 @@ const AddEventPage = () => {
   );
 };
 
-export default AddEventPage;
+export default AddNewsPage;
