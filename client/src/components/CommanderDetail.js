@@ -5,6 +5,7 @@ import { H1, H2 } from "./styled";
 import styles from "../styles/components/commanderDetail.module.scss";
 import { Link } from "react-router-dom";
 import useWindowSize from "../hooks/useWindowSize";
+import CommanderSkills from "./CommanderSkills";
 
 const CommanderDetail = ({ commander }) => {
   const { innerWidth } = useWindowSize();
@@ -48,15 +49,7 @@ const CommanderDetail = ({ commander }) => {
         }}
       >
         <CommanderImage cmdSrc={cmdSrc} cmdName={cmdName} />
-        {!skills.length
-          ? null
-          : skills.map((skill, idx) => (
-              <div key={idx}>
-                <h3>{skill.title}</h3>
-                {skill.expertise ? <p>{skill.note}</p> : null}
-                <p>{skill.description}</p>
-              </div>
-            ))}
+        {!skills.length ? null : <CommanderSkills skills={skills} />}
       </div>
     </>
   );

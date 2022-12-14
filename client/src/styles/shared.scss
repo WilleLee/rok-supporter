@@ -120,6 +120,8 @@
 }
 
 .message_box {
+  z-index: 3;
+  isolation: isolate;
   position: fixed;
   top: 10px;
   left: 30vw;

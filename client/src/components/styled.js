@@ -21,3 +21,8 @@ export const H3 = styled.h3`
   text-align: center;
   margin-bottom: 10px;
 `;
+
+export const H4 = styled.h4`
+  font-size: 16px;
+  font-weight: bold;
+`;
