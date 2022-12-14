@@ -1,0 +1,41 @@
+@import "../varibales.scss";
+
+.container {
+  margin-top: -50px;
+  padding: 70px 50px 30px;
+  min-height: 75vh;
+  background-color: $bg-color-dark;
+  color: $txt-color-dark;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 14px;
+}
+.details,
+.note {
+  font-size: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: $bg-color-light;
+    color: $txt-color-light;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .description {
+    font-size: 12px;
+  }
+  .details,
+  .note {
+    font-size: 10px;
+  }
+}
