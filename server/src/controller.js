@@ -53,7 +53,7 @@ module.exports = {
           return res
             .status(400)
             .json({ checkPw: false, msg: "password is required" });
-        return password === process.env.ADMIN_PASSWORD
+        return String(password) === String(process.env.ADMIN_PASSWORD)
           ? res.status(200).json({ checkPw: true })
           : res.status(400).json({ checkPw: false, msg: "wrong password" });
       } catch (err) {
