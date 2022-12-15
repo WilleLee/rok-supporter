@@ -32,7 +32,7 @@ const CommanderPage = () => {
       clearTimeout(timeoutId);
       resetMessage();
     };
-  }, []);
+  }, [addMessage, langMode, resetMessage]);
   const { id } = useParams();
   const [commander, setCommander] = useState({});
   const navigate = useNavigate();

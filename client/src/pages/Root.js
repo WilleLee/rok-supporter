@@ -20,11 +20,17 @@ const Root = () => {
     shallow
   );
   useEffect(() => {
+    let userAgent = window.navigator.userAgent;
     const onBeforeUnload = (event) => {
       event.preventDefault();
-      if (loggedIn) logout();
+      if (!loggedIn) return;
+      logout();
     };
-    window.addEventListener("beforeunload", onBeforeUnload);
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+      window.addEventListener("pagehide", onBeforeUnload);
+    } else {
+      window.addEventListener("beforeunload", onBeforeUnload);
+    }
   }, [loggedIn, logout]);
   return (
     <>
