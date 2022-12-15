@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import { useLangModeStore, useLoggedInStore } from "../store";
 import shallow from "zustand/shallow";
+import { useEffect } from "react";
 
 const Root = () => {
   const { loggedIn, logout } = useLoggedInStore(
@@ -18,6 +19,13 @@ const Root = () => {
     }),
     shallow
   );
+  useEffect(() => {
+    const onBeforeUnload = (event) => {
+      event.preventDefault();
+      if (loggedIn) logout();
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
+  }, [loggedIn, logout]);
   return (
     <>
       <Header langMode={langMode} loggedIn={loggedIn} logout={logout} />
