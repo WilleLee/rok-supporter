@@ -19,10 +19,20 @@ const AboutPage = () => {
   const content3 = useScroll("content3");
   return (
     <section>
+      <div className={styles.scrolls}>
+        <div className={styles.scrolls__wrapper}>
+          <div>
+            <a href="#content0">Top</a>
+          </div>
+          <div>
+            <a href="#content3">Bottom</a>
+          </div>
+        </div>
+      </div>
       {innerWidth >= 720 ? (
-        <H1>{$WELCOME_MESSAGE}</H1>
+        <H1 id="content0">{$WELCOME_MESSAGE}</H1>
       ) : (
-        <H2>{$WELCOME_MESSAGE}</H2>
+        <H2 id="content0">{$WELCOME_MESSAGE}</H2>
       )}
       <div className={styles.iframe_container}>
         <iframe
@@ -139,7 +149,7 @@ const AboutPage = () => {
               <div className={styles.img__officer}>
                 <img src="/assets/about/capProfile.png" alt="captain profile" />
                 <p>
-                  <span className="captain">N70 CAPTAIN</span>
+                  <span className="captain emp">N70 CAPTAIN</span>
                   {langMode === "en" ? (
                     <span>
                       King of the Kingdom
@@ -162,7 +172,7 @@ const AboutPage = () => {
               <div className={styles.img__officer}>
                 <img src="/assets/about/adiProfile.png" alt="adinavo profile" />
                 <p>
-                  <span className="n70d">ADINAVO</span>
+                  <span className="n70d emp">ADINAVO</span>
                   {langMode === "en" ? (
                     <span>
                       Leader of N70D

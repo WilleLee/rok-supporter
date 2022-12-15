@@ -10,10 +10,10 @@ const SkillDescription = ({ description }) => {
         <span>
           {descriptions.map((a, idx) => {
             if (idx === 0) {
-              return <span>{a}</span>;
+              return <span key={idx}>{a}</span>;
             } else {
               return (
-                <span>
+                <span key={idx}>
                   <strong>#{idx}</strong>
                   {a}
                 </span>
