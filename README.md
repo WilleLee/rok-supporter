@@ -1,9 +1,11 @@
 # ROK Supporter
 
-## Watch Preview 👇🏻
+![Rok Supporter Application](https://github.com/WilleLee/files/blob/main/rok-supporter-readme-main.png)
 
-[![preview for rok supporter](https://img.youtube.com/vi/tpA_VkAvE8w/0.jpg)](https://www.youtube.com/watch?v=tpA_VkAvE8w)
+## Deployment 👇🏻
 
-## Client Developed by React.js
+The application is now available [here](http://43.200.236.184/, "The app deployed by AWS EC2").
+
+## Client Developed by React.js using CRA
 
 ## Server Developed by Express.js
