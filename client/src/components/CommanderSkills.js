@@ -1,4 +1,5 @@
 import styles from "../styles/components/commanderSkills.module.scss";
+import SkillDescription from "./SkillDescription";
 import { H4 } from "./styled";
 
 const CommanderSkills = ({ skills }) => {
@@ -21,7 +22,7 @@ const CommanderSkills = ({ skills }) => {
             )
           </H4>
           {skill.expertise ? <p className={styles.note}>{skill.note}</p> : null}
-          <p className={styles.description}>{skill.description}</p>
+          <SkillDescription description={skill.description} />
           {skill.expertise ? null : (
             <div className={styles.details}>
               {skill.details.map((detail, idx) => (

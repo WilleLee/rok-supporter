@@ -1,0 +1,9 @@
+.description {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 480px) {
+  .description {
+    font-size: 12px;
+  }
+}
