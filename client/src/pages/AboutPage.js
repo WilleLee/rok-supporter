@@ -72,7 +72,7 @@ const AboutPage = () => {
             </H2>
           )}
           <div className={styles.content__container}>
-            <div className={styles.img_container}>
+            <div className={`${styles.img_container} ${styles.alliances}`}>
               <img src="/assets/about/alliances.png" alt="kingdom alliances" />
             </div>
             <div className={styles.content__txts}>
@@ -143,7 +143,7 @@ const AboutPage = () => {
             content2 ? styles.show : ""
           }`} /*introduce main officers of the kingdom*/
         >
-          <H1>{langMode === "en" ? "👸🏻 Leaders 🫅🏼" : "👸🏻 왕국 리더 🫅🏼"}</H1>
+          <H1>{langMode === "en" ? "👸🏻 Leaders" : "👸🏻 왕국 리더"}</H1>
           <div className={`${styles.content__container} ${styles.officers}`}>
             <div className={styles.img_container}>
               <div className={styles.img__officer}>
