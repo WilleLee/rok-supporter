@@ -1,5 +1,41 @@
 @import "../varibales.scss";
 
+.scrolls {
+  isolation: isolate;
+  z-index: 3;
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  background-color: $bg-color-dark;
+  color: $txt-color-dark;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  .scrolls__wrapper {
+    display: flex;
+    div {
+      padding: 2px 6px;
+      border-right: 1.5px solid gray;
+      &:last-child {
+        border-right: none;
+      }
+      a {
+        opacity: 0.7;
+        transition: opacity 0.2s ease-in-out;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 .iframe_container {
   padding: 0 20px;
   margin: 0 auto 30px;
@@ -13,11 +49,6 @@
   padding: 0 30px 40px;
   .content {
     margin: 0 auto 60px;
-    /*
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    */
     transform: translateY(30px);
     opacity: 0;
     transition: all 0.3s ease-in-out;
@@ -96,7 +127,6 @@
           text-align: center;
           font-weight: bold;
           opacity: 0;
-          color: $txt-color-light;
           transition: opacity 0.3s ease-in-out;
         }
         &:hover,
@@ -123,8 +153,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .img__officer p {
-    color: $txt-color-dark;
+  .scrolls {
+    background-color: $bg-color-light;
+    color: $txt-color-light;
+  }
+  .img__officer p span:not(:first-child) {
+    color: white;
   }
 }
 

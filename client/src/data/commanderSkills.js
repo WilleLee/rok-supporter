@@ -530,7 +530,7 @@ const skillsData = {
           expertise: false,
           type: "passive",
           description:
-            "Increases infantry units' attack by #1. When troops are garrisoned, infantry units' defense is increased by #2 and health by #3",
+            "Increases infantry units' attack by #1. When troops are garrisoned, infantry units' defense is increased by #2 and health by #3.",
           details: [
             ["3%", "6%", "9%", "12%", "15%"],
             ["3%", "6%", "9%", "12%", "15%"],
