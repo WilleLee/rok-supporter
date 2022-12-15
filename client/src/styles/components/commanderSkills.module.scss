@@ -2,6 +2,7 @@
 
 .container {
   margin-top: -50px;
+  width: 100vw;
   padding: 70px 50px 30px;
   min-height: 75vh;
   background-color: $bg-color-dark;
@@ -15,9 +16,6 @@
   margin-bottom: 20px;
 }
 
-.description {
-  font-size: 14px;
-}
 .details,
 .note {
   font-size: 12px;
@@ -31,9 +29,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .description {
-    font-size: 12px;
-  }
   .details,
   .note {
     font-size: 10px;

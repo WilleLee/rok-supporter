@@ -553,7 +553,7 @@ const skillsData = {
           expertise: false,
           type: "passive",
           description:
-            "Increases all damage dealt by (#1)%. When launching a normal attack against a target inflicted with an additional damage effect, there is a #2 chance of inflicting Silence for 2 seconds. This effect triggers once every 7 seconds.",
+            "Increases all damage dealt by #1. When launching a normal attack against a target inflicted with an additional damage effect, there is a #2 chance of inflicting Silence for 2 seconds. This effect triggers once every 7 seconds.",
           details: [
             ["2%", "4%", "6%", "8%", "10%"],
             ["20%", "40%", "60%", "80%", "100%"],
