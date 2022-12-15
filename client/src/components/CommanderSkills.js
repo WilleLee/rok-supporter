@@ -7,7 +7,6 @@ const CommanderSkills = ({ skills }) => {
     <div className={styles.container}>
       {skills.map((skill, idx) => (
         <div className={styles.skill} key={idx}>
-          {console.log(String(skill.description).split(/#\d/gi))}
           <H4 className={styles.title}>
             {skill.title} (
             {String(skill.type)
