@@ -27,7 +27,8 @@ const CommanderSkills = ({ skills }) => {
             <div className={styles.details}>
               {skill.details.map((detail, idx) => (
                 <p key={idx}>
-                  <strong>#{idx + 1}</strong> {detail.join(", ")}
+                  <strong>#{idx + 1}</strong>
+                  <span>{detail.join(", ")}</span>
                 </p>
               ))}
             </div>
