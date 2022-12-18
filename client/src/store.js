@@ -97,3 +97,23 @@ export const useTroopTypeStore = create((set) => ({
       }
     }),
 }));
+
+const body = document.querySelector("body");
+
+export const useHomeImageSelected = create((set) => ({
+  selectedImage: "",
+  selectImage: (str) =>
+    set(() => {
+      body.classList.add("fix");
+      return {
+        selectedImage: str,
+      };
+    }),
+  resetImageSelected: () =>
+    set(() => {
+      body.classList.remove("fix");
+      return {
+        selectedImage: "",
+      };
+    }),
+}));

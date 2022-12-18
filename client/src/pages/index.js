@@ -1,12 +1,25 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import shallow from "zustand/shallow";
 import API from "../api";
 import Footer from "../components/Footer";
 import HomeGallery from "../components/HomeGallery";
-import { useLangModeStore, useLoggedInStore } from "../store";
+import {
+  useHomeImageSelected,
+  useLangModeStore,
+  useLoggedInStore,
+} from "../store";
 import styles from "../styles/pages/home.module.scss";
 
 const HomePage = () => {
+  const { selectedImage, selectImage } = useHomeImageSelected(
+    (state) => ({
+      selectedImage: state.selectedImage,
+      selectImage: state.selectImage,
+      resetImageSelected: state.resetImageSelected,
+    }),
+    shallow
+  );
   const { loggedIn } = useLoggedInStore((state) => ({
     loggedIn: state.loggedIn,
   }));
@@ -32,8 +45,17 @@ const HomePage = () => {
     };
     getKingsMessage();
   }, []);
+
   return (
     <section>
+      {selectedImage ? (
+        <div className={styles.big_image_container}>
+          <img
+            src={`/assets/home/${selectedImage}.png`}
+            alt={`${selectedImage}`}
+          />
+        </div>
+      ) : null}
       <div style={{ minHeight: "70vh" }}>
         {kingsMessage ? (
           <div className={styles.kings_message}>
@@ -51,7 +73,7 @@ const HomePage = () => {
             </p>
           </div>
         ) : null}
-        <HomeGallery />
+        <HomeGallery selectImage={selectImage} />
       </div>
       <Footer langMode={langMode} />
     </section>
