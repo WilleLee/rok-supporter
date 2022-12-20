@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import shallow from "zustand/shallow";
 import API from "../api";
 import Footer from "../components/Footer";
 import HomeGallery from "../components/HomeGallery";
+import { useOutsideClick } from "@chakra-ui/react";
 import {
   useHomeImageSelected,
   useLangModeStore,
@@ -12,14 +13,15 @@ import {
 import styles from "../styles/pages/home.module.scss";
 
 const HomePage = () => {
-  const { selectedImage, selectImage } = useHomeImageSelected(
-    (state) => ({
-      selectedImage: state.selectedImage,
-      selectImage: state.selectImage,
-      resetImageSelected: state.resetImageSelected,
-    }),
-    shallow
-  );
+  const { selectedImage, selectImage, resetImageSelected } =
+    useHomeImageSelected(
+      (state) => ({
+        selectedImage: state.selectedImage,
+        selectImage: state.selectImage,
+        resetImageSelected: state.resetImageSelected,
+      }),
+      shallow
+    );
   const { loggedIn } = useLoggedInStore((state) => ({
     loggedIn: state.loggedIn,
   }));
@@ -32,6 +34,13 @@ const HomePage = () => {
     if (!loggedIn) return;
     navigate("/kings-message");
   };
+  const ref = useRef();
+  useOutsideClick({
+    ref: ref,
+    handler: () => {
+      resetImageSelected();
+    },
+  });
 
   useEffect(() => {
     const getKingsMessage = async () => {
@@ -51,6 +60,7 @@ const HomePage = () => {
       {selectedImage ? (
         <div className={styles.big_image_container}>
           <img
+            ref={ref}
             src={`/assets/home/${selectedImage}.png`}
             alt={`${selectedImage}`}
           />
