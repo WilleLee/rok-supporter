@@ -4,6 +4,18 @@ const $BASE_URL =
   process.env.REACT_APP_BASE_API_URL || "http://localhost:8080/api";
 
 class API {
+  static async postNews(fetchOpt) {
+    const $API_PATH = "/postNews";
+    const $API_URL = $BASE_URL + $API_PATH;
+    try {
+      const { res } = await fetcher($API_URL, fetchOpt);
+      if (res.status !== 200) return { success: false };
+      return { success: true };
+    } catch (err) {
+      console.log(err);
+      return { success: false };
+    }
+  }
   //api for commanders
   static async readCommander(fetchOpt) {
     const $API_PATH = "/readCommander";

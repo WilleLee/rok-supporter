@@ -10,6 +10,11 @@ const HomeGallery = ({ selectImage }) => {
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].addEventListener("click", onClickImage);
     }
+    return () => {
+      for (let i = 0; i < imgs.length; i++) {
+        imgs[i].removeEventListener("click", onClickImage);
+      }
+    };
   }, [selectImage]);
   return (
     <div className={styles.container}>
