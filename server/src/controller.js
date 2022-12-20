@@ -126,5 +126,57 @@ module.exports = {
         return res.sendStatus(400);
       }
     },
+
+    //News
+    readAllNews: (req, res) => {
+      try {
+        mysql.query(
+          "SELECT * FROM rok_supporter.News",
+          (err, result) => {
+            if (!result.length) return res.sendStatus(400);
+            return res.status(200).json(result);
+          }
+        );
+      } catch {
+        console.log(err);
+        return res.sendStatus(400);
+      }
+    },
+
+    readNews: (req, res) => {
+      const { id } = req.body;
+      try {
+        mysql.query(
+          "SELECT * FROM rok_supporter.News WHERE id = '" + id + "'",
+          (err, result) => {
+            if (!result.length) return res.sendStatus(400);
+            return res.status(200).json(result);
+          }
+        );
+      } catch {
+        console.log(err);
+        return res.sendStatus(400);
+      }
+    },
+
+    postNews: (req,res) => {
+      const { title } = req.body;
+      const { description } = req.body;
+      const { imgSrc } = req.body;
+      const { category } = req.body;
+
+      mysql.query(
+        "INSERT INTO rok_supporter.News (title, description, imgSrc, category) VALUE ('" + title + "," + description + "," + imgSrc + "," + category + ",');",
+        (err, result) => {
+          if (!err) {
+            console.log("Post News : " + title);
+            return res.status(200).json({ success: true });
+          } else {
+            console.log(err);
+            return res.status(400).json({ success: false });
+          }
+        }
+      );
+    }
   },
 };
