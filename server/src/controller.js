@@ -166,7 +166,7 @@ module.exports = {
       const { category } = req.body;
 
       mysql.query(
-        "INSERT INTO rok_supporter.News (title, description, imgSrc, category) VALUE ('" + title + "," + description + "," + imgSrc + "," + category + ",');",
+        "INSERT INTO rok_supporter.News (title, description, imgSrc, category) VALUE ('" + title + "," + description + "," + imgSrc + "," + category + "');",
         (err, result) => {
           if (!err) {
             console.log("Post News : " + title);
