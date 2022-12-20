@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import API from "../../api";
 import { H1 } from "../../components/styled";
 import useAdminOnly from "../../hooks/useAdminOnly";
 import { useLangModeStore, useLoggedInStore } from "../../store";
 
 const AddNewsPage = () => {
+  const navigate = useNavigate();
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
   }));
@@ -11,7 +14,7 @@ const AddNewsPage = () => {
     loggedIn: state.loggedIn,
   }));
   useAdminOnly(loggedIn);
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     const title = event.target.title.value;
     const description = event.target.description.value;
@@ -19,6 +22,23 @@ const AddNewsPage = () => {
     console.log(`title: ${title}`);
     console.log(`description: ${description}`);
     console.log(`file: ${imageFile}`);
+    const imgSrc = imageFile.name;
+    const category = event.target.category.value;
+    const fetchOpt = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ title, description, imgSrc, category }),
+    };
+    const { success } = await API.postNews(fetchOpt);
+    if (!success) {
+      console.log("failed");
+      return;
+    } else {
+      console.log("succeeded");
+      navigate("/news");
+    }
   };
   const [fileName, setFileName] = useState("");
   const onFileChange = (event) => {
@@ -44,6 +64,16 @@ const AddNewsPage = () => {
             name="title"
             type={"text"}
             maxLength={30}
+            minLength={2}
+          />
+        </div>
+        <div className="ct_form__input_container">
+          <label htmlFor="category">Category</label>
+          <input
+            id="category"
+            name="category"
+            type={"text"}
+            maxLength={15}
             minLength={2}
           />
         </div>
