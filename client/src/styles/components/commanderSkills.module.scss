@@ -39,6 +39,9 @@
 .note {
   font-size: 12px;
 }
+.details {
+  line-height: 16px;
+}
 
 .details p {
   display: flex;
@@ -60,7 +63,10 @@
 @media screen and (max-width: 480px) {
   .details,
   .note {
-    font-size: 6px;
+    font-size: 8px;
+  }
+  .details {
+    line-height: 12px;
   }
   .title {
     font-size: 10px;
