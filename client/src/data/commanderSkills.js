@@ -1006,9 +1006,9 @@ const skillsData = {
           description:
             "Infantry units led by this commander gain #1 increased march speed. They also deal #2 more damage when attacking troops. Normal attacks have a 10% chance to increase all damage dealt by this commander's troop by #3 for 3 seconds. This effect can trigger once every 8 seconds.",
           details: [
-            ["3%", "6%", "9%", "12%", "15%"][("2%", "4%", "6%", "8%", "10%")][
-              ("10%", "15%", "20%", "25%", "30%")
-            ],
+            ["3%", "6%", "9%", "12%", "15%"],
+            ["2%", "4%", "6%", "8%", "10%"],
+            ["10%", "15%", "20%", "25%", "30%"],
           ],
         },
         {
