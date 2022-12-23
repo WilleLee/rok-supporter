@@ -915,6 +915,124 @@ const skillsData = {
         },
       ],
     },
+    {
+      // tariq
+      id: 33,
+      skills: [
+        {
+          title: "Victory or Death",
+          expertise: false,
+          type: "active",
+          rageReq: 1000,
+          description:
+            "Deals direct damage to a target (Damage Factor #1). If this commander's troop is surrounded, this skill deals additional damage to the target (Damage Factor #2).",
+          details: [
+            [1400, 1600, 1800, 2000, 2200],
+            [150, 180, 210, 250, 300],
+          ],
+        },
+        {
+          title: "Bane of the Visigoths",
+          expertise: false,
+          type: "passive",
+          description:
+            "Infantry units led by this commander gain #1 increased attack and deal #2 more damage to cavalry. Infantry also gain #2 increased march speed outside of alliance territory.",
+          details: [
+            ["20%", "25%", "30%", "35%", "40%"],
+            ["2%", "4%", "6%", "8%", "10%"],
+          ],
+        },
+        {
+          title: "Gate Crasher",
+          expertise: false,
+          type: "passive",
+          description:
+            "When attacking cities or strongholds, infantry units led by this commander gain #1 increased defense, and each normal attack has a 30% chance to reduce the target's attack by #1 for the next 3 seconds. This effect can trigger once every 8 seconds.",
+          details: [["10%", "15%", "20%", "25%", "30%"]],
+        },
+        {
+          title: "Battle of Guadalete",
+          expertise: false,
+          type: "passive",
+          description:
+            "Troops led by this commander deal #1 increased damage, and have a 10% chance to reduce the target's rage by #2 for 3 seconds. This effect can trigger once every 8 seconds.",
+          details: [
+            ["5%", "7%", "9%", "12%", "15%"],
+            [40, 50, 60, 70, 80],
+          ],
+        },
+        {
+          title: "Keen Berber Blade",
+          expertise: true,
+          note: "Enhance Victory or Death",
+          type: "active",
+          description:
+            "Deals direct damage to a target (Damage Factor 2500). If this commander's troop is surrounded, this skill deals additional direct damage to the target (Damage Factor = 300 x number of surrounding enemies, capped at 900).",
+        },
+      ],
+    },
+    {
+      //sargon
+      id: 34,
+      skills: [
+        {
+          title: "Sar Kissatim",
+          expertise: false,
+          type: "active",
+          rageReq: 1000,
+          description:
+            "For the next 5 seconds, normal attacks have a #1 chance to deal direct damage to the target (Damage Factor #2).",
+          details: [
+            ["50%", "60%", "70%", "80%", "100%"],
+            [250, 300, 350, 400, 500],
+          ],
+        },
+        {
+          title: "Standing Army",
+          expertise: false,
+          type: "passive",
+          description:
+            "Infantry led by this commander gain #1 increased attack and #2 increased health. When dealing skill damage, this commander's troop has a #3 chance to inflict a stack of the Awed effect on the target troop, which increases the skill damage taken by the target by 3% for 10 seconds (maximum of 10 stacks).",
+          details: [
+            ["5%", "6%", "7%", "8%", "10%"],
+            ["10%", "12%", "14%", "16%", "20%"],
+            ["50%", "60%", "70%", "80%", "100%"],
+          ],
+        },
+        {
+          title: "Conqueror of Sumer",
+          expertise: false,
+          type: "passive",
+          description:
+            "Infantry units led by this commander gain #1 increased march speed. They also deal #2 more damage when attacking troops. Normal attacks have a 10% chance to increase all damage dealt by this commander's troop by #3 for 3 seconds. This effect can trigger once every 8 seconds.",
+          details: [
+            ["3%", "6%", "9%", "12%", "15%"][("2%", "4%", "6%", "8%", "10%")][
+              ("10%", "15%", "20%", "25%", "30%")
+            ],
+          ],
+        },
+        {
+          title: "Anu's Fury",
+          expertise: false,
+          type: "passive",
+          description:
+            "Increases infantry units' defense by #1 when in the field. When a target troop has received 10 stacks of the Awed effect, all stacks will be removed and the target troop will be dealt damage (Damage Factor #2). In addition, this commander's troop will receive a shield that lasts for 5 seconds (Shield Factor #3).",
+          details: [
+            ["2%", "4%", "6%", "8%", "10%"],
+            [500, 600, 700, 800, 1000],
+            [150, 180, 210, 250, 300],
+          ],
+        },
+        {
+          title: "Enlil's Blessings",
+          expertise: true,
+          note: "New Skill",
+          type: "passive",
+          description:
+            "Reduces the skill damage taken by this commander's troop by 15%. When their troop is hit with a normal attack, it has a 50% chance to inflict 2 stacks of the Awed effect on an enemy target. If this skill is triggered when this commander's troop gains a shield, it will inflict an extra 1 stack of Awed. This skill can be triggered once every 8 seconds.",
+        },
+      ],
+    },
   ],
   cavalry: [
     {
