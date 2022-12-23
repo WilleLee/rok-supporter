@@ -2,6 +2,9 @@ import styles from "../styles/components/skillDescription.module.scss";
 
 const SkillDescription = ({ description }) => {
   const descriptions = description.split(/#\d/gi);
+  console.log(descriptions);
+  console.log(description.match(/#\d/gi));
+  const indexes = description.match(/#\d/gi);
   return (
     <p className={styles.description}>
       {descriptions.length === 1 ? (
@@ -14,7 +17,7 @@ const SkillDescription = ({ description }) => {
             } else {
               return (
                 <span key={idx}>
-                  <strong>#{idx}</strong>
+                  <strong>{indexes[idx - 1]}</strong>
                   {a}
                 </span>
               );
