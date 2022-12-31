@@ -48,28 +48,25 @@ const CommanderDetail = ({ commander }) => {
           alignItems: "center",
         }}
       >
-        <div style={{ position: "relative" }}>
+        <div className={styles.commander_images}>
           <CommanderImage cmdSrc={cmdSrc} cmdName={cmdName} />
-          <div style={{ position: "absolute", top: "100%", left: 0 }}>
-            <div>
+          <div className={styles.talent_icons}>
+            <div className={styles.talent_icon}>
               <img
-                width={30}
                 src={`/assets/talent_icons/talent_icon_${troopType}.webp`}
                 alt={troopType}
               />
               <span>{troopType}</span>
             </div>
-            <div>
+            <div className={styles.talent_icon}>
               <img
-                width={30}
                 src={`/assets/talent_icons/talent_icon_${targetType}.webp`}
                 alt={targetType}
               />
               <span>{targetType}</span>
             </div>
-            <div>
+            <div className={styles.talent_icon}>
               <img
-                width={30}
                 src={`/assets/talent_icons/talent_icon_${attackType}.webp`}
                 alt={attackType}
               />

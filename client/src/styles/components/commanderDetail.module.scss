@@ -38,11 +38,50 @@
   }
 }
 
+.commander_images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.talent_icons {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.talent_icon {
+  display: flex;
+  align-items: center;
+  img {
+    width: 28px;
+  }
+  span {
+    z-index: -1;
+    margin-left: -10px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: $bg-color-light;
+    padding: 3px 6px 3px 10px;
+    border: none;
+    border-radius: 5px;
+    color: $txt-color-light;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .title_container div:first-child div {
     background-color: $bg-color-light;
     p {
       color: $txt-color-light;
+    }
+  }
+
+  .talent_icon {
+    span {
+      background-color: $bg-color-dark;
+      color: $txt-color-dark;
     }
   }
 }
