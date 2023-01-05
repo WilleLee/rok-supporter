@@ -15,26 +15,27 @@
 }
 
 .form__wrapper_1 {
-  input {
+  input,
+  .select_box select {
     all: unset;
     box-sizing: border-box;
     background-color: $bg-color-dark;
     color: $txt-color-dark;
     border: 2px solid transparent;
-    border-radius: 3px;
-    padding: 3px 6px;
     transition: border 0.3s ease-in-out;
+    border-radius: 3px;
     &:focus,
     &:active {
       border-color: orange;
     }
   }
+  input {
+    padding: 3px 6px;
+  }
   .select_box {
     position: relative;
 
     select {
-      all: unset;
-      box-sizing: border-box;
       position: relative;
       width: 100%;
       height: 100%;
@@ -42,15 +43,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $bg-color-dark;
-      color: $txt-color-dark;
-      border: 2px solid transparent;
-      border-radius: 3px;
-      transition: border 0.3s ease-in-out;
-      &:focus,
-      &:active {
-        border-color: orange;
-      }
       &:focus + span {
         transform: rotate(180deg);
       }

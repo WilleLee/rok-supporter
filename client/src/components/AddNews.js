@@ -31,7 +31,9 @@ const AddNews = () => {
         />
         <div className={styles.select_box}>
           <select ref={ref}>
-            <option value={""}>--CHOOSE--</option>
+            <option value={""}>
+              --{langMode === "en" ? "카테고리" : "CATEGORY"}--
+            </option>
             <option value={Options.notice}>
               {langMode === "en" ? "공지" : "Notice"}
             </option>

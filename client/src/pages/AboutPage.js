@@ -208,7 +208,7 @@ const AboutPage = () => {
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/-rcgjqsQYiY"
+                src="https://www.youtube-nocookie.com/embed/-rcgjqsQYiY"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -238,6 +238,20 @@ const AboutPage = () => {
               </H2>
             )}
           </div>
+          <div className={`${styles.content__container} ${styles.nineth_kvk}`}>
+            <img
+              src="/assets/about/9th_kvk_results.jpeg"
+              alt="9th KvK results"
+            />
+            <p>
+              {innerWidth <= 620 ? (
+                <H3>We do the most with the least!</H3>
+              ) : (
+                <H2>We do the most with the least!</H2>
+              )}
+              <span>( Results from the 9th KvK )</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -245,3 +259,8 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+/*
+
+<= 620
+*/

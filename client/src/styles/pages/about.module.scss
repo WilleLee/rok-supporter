@@ -153,11 +153,62 @@
   }
 
   &.kvk_history {
+    margin-bottom: 40px;
     align-items: center;
     justify-content: center;
     .iframe_container {
       margin: 0;
       padding: 0;
+    }
+  }
+
+  &.nineth_kvk {
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    width: 780px;
+    img,
+    p {
+      transition: opacity 0.25s ease-in-out;
+    }
+    img {
+      width: 100%;
+      opacity: 0.4;
+    }
+    p {
+      color: white;
+      margin: 0;
+      max-width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 1;
+      span {
+        margin-top: -5px;
+        text-align: center;
+        font-size: 12px;
+      }
+      h2 {
+        line-height: 32px;
+      }
+      h3 {
+        line-height: 24px;
+      }
+    }
+    &:hover,
+    &:focus {
+      img {
+        opacity: 1;
+      }
+      p {
+        opacity: 0;
+      }
     }
   }
 }
@@ -193,5 +244,21 @@
     .iframe_container {
       width: 100%;
     }
+  }
+
+  .content__container.nineth_kvk {
+    width: 540px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .content__container.nineth_kvk {
+    width: 380px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content__container.nineth_kvk {
+    width: 310px;
   }
 }
