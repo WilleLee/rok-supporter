@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import AddNews from "../../components/AddNews";
 import { H1, H2, H3 } from "../../components/styled";
 import useWindowSize from "../../hooks/useWindowSize";
 import { useLangModeStore, useLoggedInStore } from "../../store";
@@ -40,30 +41,7 @@ const NewsPage = () => {
         )}
       </div>
       <div /* 타임라인 형태의 news 구현 */>
-        <div>
-          <form>
-            {/*새로운 news를 POST 하는 textarea*/}
-            <div>
-              <input type={"text"} placeholder={"title"} />
-            </div>
-            <div
-              style={{
-                display: "flex",
-              }}
-            >
-              <textarea />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <input type={"file"} />
-                <input type={"submit"} value={"Confirm"} />
-              </div>
-            </div>
-          </form>
-        </div>
+        <AddNews />
         <div>{/* 서버로부터 전달 받은 기존 news들을 뿌리는 공간 */}</div>
       </div>
     </section>
