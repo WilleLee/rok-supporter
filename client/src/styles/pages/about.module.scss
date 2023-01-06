@@ -168,15 +168,15 @@
     position: relative;
     width: 780px;
     img,
-    p {
+    .nineth_kvk__txt_container {
       transition: opacity 0.25s ease-in-out;
     }
     img {
       width: 100%;
-      opacity: 0.4;
+      opacity: 0.2;
     }
-    p {
-      color: white;
+    .nineth_kvk__txt_container {
+      color: black;
       margin: 0;
       max-width: 400px;
       position: absolute;
@@ -190,12 +190,13 @@
       text-align: center;
       opacity: 1;
       span {
-        margin-top: -5px;
+        margin-top: -20px;
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: bold;
       }
-      h2 {
-        line-height: 32px;
+      h1 {
+        line-height: 42px;
       }
       h3 {
         line-height: 24px;
@@ -206,7 +207,7 @@
       img {
         opacity: 1;
       }
-      p {
+      .nineth_kvk__txt_container {
         opacity: 0;
       }
     }
@@ -219,6 +220,9 @@
     color: $txt-color-light;
   }
   .img__officer p span:not(:first-child) {
+    color: white;
+  }
+  .content__container.nineth_kvk .nineth_kvk__txt_container {
     color: white;
   }
 }
@@ -254,6 +258,9 @@
 @media screen and (max-width: 620px) {
   .content__container.nineth_kvk {
     width: 380px;
+    .nineth_kvk__txt_container span {
+      margin-top: -5px;
+    }
   }
 }
 

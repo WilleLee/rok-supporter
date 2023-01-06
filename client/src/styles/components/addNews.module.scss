@@ -83,7 +83,40 @@
   justify-content: space-between;
 
   input[type="submit"] {
-    height: 40px;
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    background-color: $bg-color-dark;
+    color: $txt-color-dark;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .file_container {
+    position: relative;
+    .file_icon {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      background-color: $bg-color-dark;
+      color: $txt-color-dark;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 50%;
+    }
+    input[type="file"] {
+      opacity: 0;
+    }
   }
 }
 
@@ -100,5 +133,17 @@
   }
   .form__wrapper_2 textarea {
     background-color: $bg-color-light;
+  }
+  .wrapper_2__controls {
+    input[type="submit"] {
+      background-color: $bg-color-light;
+      color: $txt-color-light;
+    }
+    .file_container {
+      .file_icon {
+        background-color: $bg-color-light;
+        color: $txt-color-light;
+      }
+    }
   }
 }

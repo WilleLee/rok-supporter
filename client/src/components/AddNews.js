@@ -1,4 +1,6 @@
 import { useOutsideClick } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 import styles from "../styles/components/addNews.module.scss";
 
@@ -18,7 +20,12 @@ const AddNews = ({ langMode }) => {
     },
   });
   return (
-    <form className={styles.form}>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+      }}
+      className={styles.form}
+    >
       {/*새로운 news를 POST 하는 textarea*/}
       <div className={`${styles.form__wrapper} ${styles.form__wrapper_1}`}>
         <input
@@ -46,7 +53,12 @@ const AddNews = ({ langMode }) => {
       <div className={`${styles.form__wrapper} ${styles.form__wrapper_2}`}>
         <textarea />
         <div className={styles.wrapper_2__controls}>
-          <input type={"file"} />
+          <div className={styles.file_container}>
+            <input type={"file"} />
+            <div className={styles.file_icon}>
+              <FontAwesomeIcon icon={faPaperclip} />
+            </div>
+          </div>
           <input type={"submit"} value={"Confirm"} />
         </div>
       </div>
