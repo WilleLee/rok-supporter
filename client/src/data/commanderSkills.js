@@ -1790,7 +1790,8 @@ const skillsData = {
             "Deals direct damage to the current target (Damage Factor #1). Troops led by this commander and nearby allied troops gain #2 increased skill damage for 3 seconds, and #3 rage per second. However, incoming damage is increased by 25% for 3 seconds.",
           details: [
             [100, 150, 200, 250, 300],
-            ["10%", "13%", "16%", "20%", "25%"][(15, 20, 25, 30, 40)],
+            ["10%", "13%", "16%", "20%", "25%"],
+            [(15, 20, 25, 30, 40)],
           ],
         },
         {
