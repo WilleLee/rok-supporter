@@ -1,6 +1,5 @@
 import { useOutsideClick } from "@chakra-ui/react";
 import { useRef } from "react";
-import { useLangModeStore } from "../store";
 import styles from "../styles/components/addNews.module.scss";
 
 const Options = {
@@ -10,10 +9,7 @@ const Options = {
   event: "event",
 };
 
-const AddNews = () => {
-  const { langMode } = useLangModeStore((state) => ({
-    langMode: state.langMode,
-  }));
+const AddNews = ({ langMode }) => {
   const ref = useRef();
   useOutsideClick({
     ref: ref,
@@ -32,16 +28,16 @@ const AddNews = () => {
         <div className={styles.select_box}>
           <select ref={ref}>
             <option value={""}>
-              --{langMode === "en" ? "카테고리" : "CATEGORY"}--
+              --{langMode === "en" ? "CATEGORY" : "카테고리"}--
             </option>
             <option value={Options.notice}>
-              {langMode === "en" ? "공지" : "Notice"}
+              {langMode === "en" ? "Notice" : "공지"}
             </option>
             <option value={Options.interview}>
-              {langMode === "en" ? "인터뷰" : "Interview"}
+              {langMode === "en" ? "Interview" : "인터뷰"}
             </option>
             <option value={Options.event}>
-              {langMode === "en" ? "이벤트" : "Event"}
+              {langMode === "en" ? "Event" : "이벤트"}
             </option>
           </select>
           <span>&darr;</span>

@@ -41,7 +41,7 @@ const NewsPage = () => {
         )}
       </div>
       <div /* 타임라인 형태의 news 구현 */>
-        <AddNews />
+        <AddNews langMode={langMode} />
         <div>{/* 서버로부터 전달 받은 기존 news들을 뿌리는 공간 */}</div>
       </div>
     </section>
