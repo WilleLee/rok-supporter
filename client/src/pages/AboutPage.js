@@ -6,6 +6,11 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useLangModeStore } from "../store";
 import styles from "../styles/pages/about.module.scss";
 
+const ninethKvk = {
+  $en: "We do the most with the least!",
+  $ko: "갓성비 갑, 1770!",
+};
+
 const AboutPage = () => {
   const { langMode } = useLangModeStore((state) => ({
     langMode: state.langMode,
@@ -25,7 +30,7 @@ const AboutPage = () => {
             <a href="#content0">Top</a>
           </div>
           <div>
-            <a href="#content3">Bottom</a>
+            <a href="#last_content">Bottom</a>
           </div>
         </div>
       </div>
@@ -208,7 +213,7 @@ const AboutPage = () => {
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/-rcgjqsQYiY"
+                src="https://www.youtube-nocookie.com/embed/-rcgjqsQYiY"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -238,6 +243,25 @@ const AboutPage = () => {
               </H2>
             )}
           </div>
+          <div
+            id="last_content"
+            className={`${styles.content__container} ${styles.nineth_kvk}`}
+          >
+            <img
+              src="/assets/about/9th_kvk_results.jpeg"
+              alt="9th KvK results"
+            />
+            <div className={styles.nineth_kvk__txt_container}>
+              {innerWidth <= 620 ? (
+                <H3>{langMode === "en" ? ninethKvk.$en : ninethKvk.$ko}</H3>
+              ) : innerWidth <= 920 ? (
+                <H2>{langMode === "en" ? ninethKvk.$en : ninethKvk.$ko}</H2>
+              ) : (
+                <H1>{langMode === "en" ? ninethKvk.$en : ninethKvk.$ko}</H1>
+              )}
+              <span>( Results from the 9th KvK )</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -245,3 +269,8 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+/*
+
+<= 620
+*/

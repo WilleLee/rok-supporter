@@ -40,18 +40,28 @@ const AddNewsPage = () => {
       navigate("/news");
     }
   };
+  const [currImgFile, setCurrImgFile] = useState("");
   const [fileName, setFileName] = useState("");
   const onFileChange = (event) => {
     if (!event.target.files.length) return;
     const {
       target: { files },
     } = event;
+    console.log(files[0]);
+    const reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onloadend = () => {
+      setCurrImgFile(reader.result);
+    };
     const newFileName = files[0].name;
     setFileName(newFileName);
   };
   return (
     <section>
       <H1>Add News Here</H1>
+      {!currImgFile.length ? null : (
+        <img width={120} src={currImgFile} alt="current file uploaded" />
+      )}
       <form
         onSubmit={onSubmit}
         className="ct_form add_event"

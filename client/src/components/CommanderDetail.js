@@ -9,7 +9,7 @@ import CommanderSkills from "./CommanderSkills";
 
 const CommanderDetail = ({ commander }) => {
   const { innerWidth } = useWindowSize();
-  const { cmdSrc, cmdName } = commander;
+  const { cmdSrc, cmdName, troopType, attackType, targetType } = commander;
   const [skills, setSkills] = useState([]);
   useEffect(() => {
     const { id, troopType } = commander;
@@ -48,7 +48,32 @@ const CommanderDetail = ({ commander }) => {
           alignItems: "center",
         }}
       >
-        <CommanderImage cmdSrc={cmdSrc} cmdName={cmdName} />
+        <div className={styles.commander_images}>
+          <CommanderImage cmdSrc={cmdSrc} cmdName={cmdName} />
+          <div className={styles.talent_icons}>
+            <div className={styles.talent_icon}>
+              <img
+                src={`/assets/talent_icons/talent_icon_${troopType}.webp`}
+                alt={troopType}
+              />
+              <span>{troopType}</span>
+            </div>
+            <div className={styles.talent_icon}>
+              <img
+                src={`/assets/talent_icons/talent_icon_${targetType}.webp`}
+                alt={targetType}
+              />
+              <span>{targetType}</span>
+            </div>
+            <div className={styles.talent_icon}>
+              <img
+                src={`/assets/talent_icons/talent_icon_${attackType}.webp`}
+                alt={attackType}
+              />
+              <span>{attackType}</span>
+            </div>
+          </div>
+        </div>
         {!skills.length ? null : <CommanderSkills skills={skills} />}
       </div>
     </>

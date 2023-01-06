@@ -1,0 +1,149 @@
+@import "../varibales.scss";
+
+.form {
+  display: grid;
+  grid-template-rows: 30px 80px;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+.form__wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 330px 140px;
+  gap: 5px;
+}
+
+.form__wrapper_1 {
+  input,
+  .select_box select {
+    all: unset;
+    box-sizing: border-box;
+    background-color: $bg-color-dark;
+    color: $txt-color-dark;
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out;
+    border-radius: 3px;
+    &:focus,
+    &:active {
+      border-color: orange;
+    }
+  }
+  input {
+    padding: 3px 6px;
+  }
+  .select_box {
+    position: relative;
+
+    select {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 3px 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:focus + span {
+        transform: rotate(180deg);
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 3px;
+      top: 0;
+      height: 100%;
+      font-weight: bold;
+      color: $txt-color-dark;
+      transform: rotate(0deg);
+      transition: all 0.3s;
+    }
+  }
+}
+
+.form__wrapper_2 {
+  textarea {
+    height: 80px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    resize: none;
+    background-color: $bg-color-dark;
+    border: none;
+    border-radius: 3px;
+  }
+}
+
+.wrapper_2__controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  input[type="submit"] {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    background-color: $bg-color-dark;
+    color: $txt-color-dark;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .file_container {
+    position: relative;
+    .file_icon {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      background-color: $bg-color-dark;
+      color: $txt-color-dark;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 50%;
+    }
+    input[type="file"] {
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .form__wrapper_1 {
+    input,
+    .select_box select {
+      background-color: $bg-color-light;
+      color: $txt-color-light;
+    }
+    .select_box span {
+      color: $txt-color-light;
+    }
+  }
+  .form__wrapper_2 textarea {
+    background-color: $bg-color-light;
+  }
+  .wrapper_2__controls {
+    input[type="submit"] {
+      background-color: $bg-color-light;
+      color: $txt-color-light;
+    }
+    .file_container {
+      .file_icon {
+        background-color: $bg-color-light;
+        color: $txt-color-light;
+      }
+    }
+  }
+}

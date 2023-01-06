@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import AddNews from "../../components/AddNews";
 import { H1, H2, H3 } from "../../components/styled";
 import useWindowSize from "../../hooks/useWindowSize";
 import { useLangModeStore, useLoggedInStore } from "../../store";
@@ -38,6 +39,10 @@ const NewsPage = () => {
         ) : (
           <H3>🛠 {$APPOLOGY} 🙇🏻‍♂️</H3>
         )}
+      </div>
+      <div /* 타임라인 형태의 news 구현 */>
+        <AddNews langMode={langMode} />
+        <div>{/* 서버로부터 전달 받은 기존 news들을 뿌리는 공간 */}</div>
       </div>
     </section>
   );
